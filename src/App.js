@@ -1,49 +1,22 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 import { india } from './data/india';
+import { hydrateLevel } from './data/factory';
+import { TimeLine } from './components/timeline';
+import { Century } from './components/century';
 
-function TimeLine({ timeline }) {
-  console.log(timeline);
-  return <div className="timeline">{timeline.map((item, index) => <Item index={index} key={index} item={item} />)}</div>
-}
-
-function Wiki({wiki}) {
-  console.log(wiki);
-  return <div className="wiki">
-    <img src={wiki.thumbnail.source} />
-    <h1>{ wiki.title}</h1>
-    <p>{wiki.extract}</p>
-  </div>
-}
-
-function Item({ item, index }) {
-  const [wiki, setWiki] = useState(null);
-  function onClick() {
-    if (wiki) {
-      return setWiki(null);
-    }
-    fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + item.wiki)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-      setWiki(json);
-    })
-  }
-  const style = {
-    left: item.date[0] + 'px',
-    width: Math.abs(item.date[0] - item.date[1])  + 'px',
-    height: ((index % 10) + 1) * 10 + "px" 
-  };
-  return <div onClick={onClick} className="item" style={style}>{item.name} {wiki && <Wiki wiki={wiki} />}</div>
+const years = [];
+for (let i = -1000; i < 2000; i = i + 100) {
+  years.push(i);
 }
 
 function App() {
+  const sorted = hydrateLevel(india.timeline);
   return (
     <div className="App">
-      <TimeLine timeline={india.timeline} />
+      <TimeLine timeline={sorted} />
+      { years.map(y => <Century key={y} year={y} />)}
     </div>
   );
 }

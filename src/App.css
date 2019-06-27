@@ -17,7 +17,6 @@
 .timeline {
   position: relative;
   height: 200px;
-  left: 500px;
 }
 
 .wiki {
@@ -35,4 +34,13 @@
 .wiki img {
   display: block;
   width: 100%;
+}
+
+.century {
+  width: 100px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  color: grey;
+  border-left: 1px solid rgba(100,100,100, 0.2);
 }
