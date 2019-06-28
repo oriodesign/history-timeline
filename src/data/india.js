@@ -1,7 +1,10 @@
-import { period } from './factory';
+import { period, hydrateLevel } from './factory';
 
 export const india = {
-    timeline: [
+    title: "India",
+    date: [-322, 2020],
+    color: "#AA0000",
+    timeline: hydrateLevel([
         period("Maurya Empire", [-322, -185], "Maurya_Empire"),
         period("Chola Empire", [-300, 1279], "Chola_dynasty"),
         period("Pandya Empire", [-300, 1650], "Pandya_dynasty"),
@@ -21,5 +24,5 @@ export const india = {
         period("British Raj", [1858, 1947], "British_Raj"),
         period("Dominion of India", [1947, 1950], "Dominion_of_India"),
         period("Republic of India", [1950, 2020], "India"),
-    ]
+    ])
 };

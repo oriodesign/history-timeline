@@ -1,34 +1,74 @@
 .item {
-  color: white;
-  background-color: rgba(255,100,100,0.8);
-  position: absolute;
-  bottom: 0;
   font-size: 10px;
   line-height: 10px;
-  opacity: 0.5;
+  opacity: 0.1;
   cursor: pointer;
+  color: white;
 }
 
-.item:hover {
-  opacity: 1;
-  z-index: 2;
+.item-position:hover .item {
+  opacity: 0.6;
+  overflow: visible;
 }
+
+.item-position:hover .item-name {
+  opacity: 1;
+}
+
+.item-name {
+  white-space: nowrap;
+  pointer-events: none;
+  font-size: 10px;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.house .item-name {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.ruler .item-name {
+  /*transform: rotate(-45deg);*/
+  transform-origin: bottom left;
+  font-size: 10px;
+  top: -11px;
+}
+
+.period .item-name, .house .item-name {
+  width: 100%;
+  overflow: hidden;
+}
+
+.period:hover .item-name, .house:hover .item-name {
+  width: 100%;
+  overflow: visible;
+}
+
+.item-position {
+  position: absolute;
+  bottom: 0;
+}
+
+
 
 .timeline {
   position: relative;
   height: 200px;
+  margin-bottom: 200px;
 }
 
 .wiki {
   background: white;
   padding: 20px;
   position: absolute;
-  top: 40px;
-  left: 10px;
+  top: 70px;
+  left: 5px;
   color: black;
   width: 300px;
   box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
   border-radius: 3px;
+  z-index: 100;
 }
 
 .wiki img {
@@ -38,9 +78,37 @@
 
 .century {
   width: 100px;
-  height: 100vh;
+  height: 400px;
   position: absolute;
   top: 0;
   color: grey;
+  z-index: -1;
   border-left: 1px solid rgba(100,100,100, 0.2);
+}
+
+.timeline-name {
+  position: absolute;
+  bottom: -16px;
+  color: white;
+  font-size: 14px;
+  height: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.editor {
+  font-style: monospace;
+  width: 100%;
+}
+
+textarea {
+  padding: 20px;
+  width: 100%;
+}
+
+.result {
+  padding: 20px;
+  background: #CCC;
+  width: 100%;
+  font-size: 12px;
 }
