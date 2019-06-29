@@ -50,12 +50,14 @@
   bottom: 0;
 }
 
-
+.timelines-wrapper {
+  margin-top: 40px;
+  position: relative;
+}
 
 .timeline {
   position: relative;
-  height: 200px;
-  margin-bottom: 200px;
+  margin-bottom: 10px;
 }
 
 .wiki {
@@ -111,4 +113,23 @@ textarea {
   background: #CCC;
   width: 100%;
   font-size: 12px;
+}
+
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: darkslategrey;
+  color: white;
+  z-index: 1000;
+}
+
+.main-header h1 {
+  display: inline-block;
+  font-size: 12px;
+  padding: 0 20px;
+}
+
+.main-header select {
+  margin: 0 20px;
 }

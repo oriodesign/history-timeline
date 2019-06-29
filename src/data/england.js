@@ -1,10 +1,10 @@
-import { house, hydrateLevel, ruler } from './factory';
+import { house, ruler } from './factory';
 
 export const england = {
     title: "England",
-    date: [886, 1707],
+    date: [886, 2020],
     color: "#00AA00",
-    timeline: hydrateLevel([
+    timeline: [
         // houses
         house("House of Wessex", [886, 1013], "House_of_Wessex"),
         house("House of Denmark", [1013, 1014], "House_of_Denmark"),
@@ -93,5 +93,5 @@ export const england = {
         ruler("Edward VIII", [1936, 1936 ], "Edward_VIII"),
         ruler("George VI", [1936, 1952 ], "George_VI"),
         ruler("Elizabeth II", [1952, 2020], "Elizabeth_II")
-    ])
+    ]
 };

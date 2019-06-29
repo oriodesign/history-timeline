@@ -28,13 +28,16 @@ export function house(name, date, wiki) {
     };
 }
 
-export function hydrateLevel(original) {
-    const MIN_YEARS = 5;
+export function hydrateLevel(original, type, threshold) {
     const MAX_LEVEL = 10;
     original.sort((a, b) => a.date[0] < b.date[0] ? -1 : 1);
 
-    const timeline = original.filter(t => {
-        return t.date[1] - t.date[0] > MIN_YEARS;
+    const timeline = original
+    .filter(t => {
+        return t.type === type || type === "all"
+    })
+    .filter(t => {
+        return t.date[1] - t.date[0] > threshold;
     });
     for (let i = 0; i < timeline.length; i++) {
         const current = timeline[i].date;

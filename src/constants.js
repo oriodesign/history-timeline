@@ -1,1 +1,1 @@
-export const SCALE = 5;
+export const SCALE = 3;
