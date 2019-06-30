@@ -26,8 +26,8 @@ export function Editor() {
 
       function parseHtml(e) {
 
-        const nameIndex = 1;
-        const fromIndex = 4;
+        const nameIndex = 0;
+        const fromIndex = 2;
         const tillIndex = 3;
 
         const el = document.createElement("div");
@@ -40,15 +40,14 @@ export function Editor() {
               return;
             }
 
-            const nameElement = t.querySelectorAll("a")[1];
+            const nameElement = t.querySelectorAll("a")[nameIndex];
 
 
             const text = nameElement.innerText.trim().replace("\n", "");
-            // const fromDate = t.children[fromIndex].innerText.replace("\n", "");
-            const [fromDate, tillDate] = t.children[fromIndex].innerText.split("–")
-            console.log(fromDate, tillDate);
+             const fromDate = t.children[fromIndex].innerText.replace("\n", "");
+            //const [fromDate, tillDate] = t.children[fromIndex].innerText.split("–")
             const from = new Date(fromDate);
-            //const tillDate = t.children[tillIndex].innerText.replace("\n", "");
+            const tillDate = t.children[tillIndex].innerText.replace("\n", "");
             const till = new Date(tillDate);
 
             const attr = nameElement ? nameElement.attributes : null;

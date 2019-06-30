@@ -3,7 +3,6 @@ import { house, ruler } from './factory';
 export const sweden = {
     title: "Sweden",
     date: [970, 2020],
-    color: "#AA00AA",
     timeline: [
         house("House of Munsö", [970, 1060], ""),
         house("House of Stenkil", [1060, 1126], ""),

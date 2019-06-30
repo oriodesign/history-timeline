@@ -3,7 +3,6 @@ import { house, ruler } from './factory';
 export const england = {
     title: "England",
     date: [886, 2020],
-    color: "#00AA00",
     timeline: [
         // houses
         house("House of Wessex", [886, 1013], "House_of_Wessex"),

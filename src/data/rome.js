@@ -3,7 +3,6 @@ import { ruler } from './factory';
 export const rome = {
     title: "Rome",
     date: [-27, 1453],
-    color: "#AA0000",
     timeline: [
         ruler("Augustus", [-27, 14], "Augustus"),
         ruler("Tiberius", [14, 37], "Tiberius"),

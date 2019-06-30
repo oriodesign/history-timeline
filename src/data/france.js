@@ -3,7 +3,6 @@ import { ruler } from './factory';
 export const france = {
     title: "France",
     date: [509, 2020],
-    color: "#AA0000",
     timeline: [
         ruler("Clovis I", [509, 511], "Clovis_I"),
         ruler("Theuderic I (Thierry)", [511, 533], "Theuderic_I"),

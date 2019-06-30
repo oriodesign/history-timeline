@@ -3,7 +3,6 @@ import { period } from './factory';
 export const india = {
     title: "India",
     date: [-322, 2020],
-    color: "#AA0000",
     timeline: [
         period("Maurya Empire", [-322, -185], "Maurya_Empire"),
         period("Chola Empire", [-300, 1279], "Chola_dynasty"),
