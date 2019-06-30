@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 
-import { india } from './data/india';
-import { england } from './data/england';
-import { sweden } from './data/sweden';
+
 import { hydrateLevel } from './data/factory';
 
 import { TimeLine } from './components/timeline';
 import { Century } from './components/century';
 import { Editor } from './components/editor';
 import { Header } from './components/header';
+import { timelines } from './data/all';
 
 const years = [];
-for (let i = -1000; i < 2000; i = i + 100) {
+for (let i = -1000; i <= 2000; i = i + 100) {
   years.push(i);
 }
 
@@ -29,9 +28,9 @@ function App() {
     setThreshold(e.target.value);
   }
 
-  india.filteredTimeline = hydrateLevel(india.timeline, type, threshold);
-  england.filteredTimeline = hydrateLevel(england.timeline, type, threshold);
-  sweden.filteredTimeline = hydrateLevel(sweden.timeline, type, threshold);
+  timelines.forEach(t => {
+    t.filteredTimeline = hydrateLevel(t.timeline, type, threshold);
+  });
 
   return (
     <div className="App">
@@ -39,10 +38,7 @@ function App() {
       <Header type={type} threshold={threshold} onChangeThreshold={onChangeThreshold} onChangeType={onChangeType} />
 
       <div className="timelines-wrapper">
-        <TimeLine timeline={india} />
-
-        <TimeLine timeline={england} />
-        <TimeLine timeline={sweden} />
+        {timelines.map(t => <TimeLine key={t.name} timeline={t} />)}
         { years.map(y => <Century key={y} year={y} />)}
       </div>
       
