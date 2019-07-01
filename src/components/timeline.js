@@ -3,7 +3,7 @@ import { Item } from './item';
 import { Wiki } from './wiki';
 import { SCALE, START } from "../constants";
 
-export function TimeLine({ timeline }) {
+export function TimeLine({ timeline, scrollX }) {
 
     const [wiki, setWiki] = useState(null);
     const [selectedItem, setSelectedItem] = useState(null);
@@ -34,7 +34,13 @@ export function TimeLine({ timeline }) {
         height: (maxLevel + 3) * 10 + "px"
     };
 
+    const left = Math.max(scrollX, (timeline.date[0] + START) * SCALE); 
+
     const styleName = {
+        left: left + "px"
+    };
+
+    const styleBar = {
         left: (timeline.date[0] + START) * SCALE + "px",
         width: Math.abs(timeline.date[0] - timeline.date[1]) * SCALE + "px",
         backgroundColor: timeline.color
@@ -47,6 +53,7 @@ export function TimeLine({ timeline }) {
     return <div title={timeline.title} style={style} className="timeline">
         {timeline.filteredTimeline.map((item, index) => <Item onClick={onClick} color={timeline.color} index={index} key={index} item={item} />)}
         <div style={styleName} className="timeline-name">{timeline.title}</div>
+        <div style={styleBar} className="timeline-bar" />
         {wiki && <Wiki item={selectedItem} close={close} style={wikiStyle} wiki={wiki} />}
     </div>
 }

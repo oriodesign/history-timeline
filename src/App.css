@@ -58,6 +58,7 @@
 .timeline {
   position: relative;
   margin-bottom: 10px;
+  transition: height 1s;
 }
 
 .wiki {
@@ -97,6 +98,18 @@
   bottom: -16px;
   color: white;
   font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 1;
+  transition: left 0.5s;
+  white-space: nowrap;
+}
+
+.timeline-bar {
+  position: absolute;
+  bottom: -16px;
+  color: white;
+  font-size: 14px;
   height: 16px;
   text-transform: uppercase;
   font-weight: bold;
@@ -109,8 +122,9 @@
 
 .show-editor {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  top: 7px;
+  right: 3px;
+  z-index: 2000;
 }
 
 textarea {

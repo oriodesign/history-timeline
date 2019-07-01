@@ -8,6 +8,8 @@ import { holyRomanEmpire } from './holy-roman';
 import { austrianEmpire } from './austrian-empire';
 import { florence } from './florence';
 import { italy } from './italy';
+import { sicily, naples, kingdomOfTwoSicily } from './sicily';
+import { spain } from './spain';
 import { ancientEgypt } from './egypt';
 
 const range = ["44", "88", "BB"];
@@ -28,6 +30,10 @@ export const timelines = [
     russia,
     austrianEmpire,
     france,
+    spain,
+    sicily,
+    naples,
+    kingdomOfTwoSicily,
     italy,
     florence,
     india, 
