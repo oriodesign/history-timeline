@@ -27,14 +27,15 @@ export function Editor() {
       function parseHtml(e) {
 
         const nameIndex = 0;
-        const fromIndex = 2;
+        const fromIndex = 3;
         const tillIndex = 3;
+        const BC = "-";
 
         const el = document.createElement("div");
         el.innerHTML = e.target.value;
         const trs = Array.from(el.querySelectorAll("tr"));
         const parsed = trs.map(t => {
-          if (t.children.length >= 5) {
+          if (t.children.length >= 4) {
             
             if (t.children[nameIndex].nodeName === "TH") {
               return;
@@ -43,16 +44,24 @@ export function Editor() {
             const nameElement = t.querySelectorAll("a")[nameIndex];
 
 
-            const text = nameElement.innerText.trim().replace("\n", "");
-             const fromDate = t.children[fromIndex].innerText.replace("\n", "");
-            //const [fromDate, tillDate] = t.children[fromIndex].innerText.split("–")
+            const text = nameElement ? nameElement.innerText.trim().replace("\n", "") : "";
+            // const fromDate = t.children[fromIndex].innerText.replace("\n", "");
+            const [fromDate, tillDate] = t.children[fromIndex].innerText.replace("BC", "").trim().split("–")
             const from = new Date(fromDate);
-            const tillDate = t.children[tillIndex].innerText.replace("\n", "");
+            //const tillDate = t.children[tillIndex].innerText.replace("\n", "");
             const till = new Date(tillDate);
+
+            if (!fromDate) {
+              return;
+            }
+
+            if (!tillDate) {
+              return;
+            }
 
             const attr = nameElement ? nameElement.attributes : null;
             const wiki = attr && attr.href ? attr.href.value.replace("/wiki/", ""): "";
-            return `ruler("${text}", [${from.getFullYear()}, ${till.getFullYear()}], "${wiki}")`;
+            return `ruler("${text}", [${BC}${fromDate}, ${BC}${tillDate}], "${wiki}")`;
           }
           
         }).filter(r => !!r).join(",\n");

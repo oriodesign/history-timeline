@@ -6,6 +6,9 @@ import { rome } from './rome';
 import { russia } from './russia';
 import { holyRomanEmpire } from './holy-roman';
 import { austrianEmpire } from './austrian-empire';
+import { florence } from './florence';
+import { italy } from './italy';
+import { ancientEgypt } from './egypt';
 
 const range = ["44", "88", "BB"];
 
@@ -19,11 +22,14 @@ range.forEach((r => {
 }));
 
 export const timelines = [
+    ancientEgypt,
     rome,
     holyRomanEmpire,
     russia,
     austrianEmpire,
     france,
+    italy,
+    florence,
     india, 
     england,
     sweden

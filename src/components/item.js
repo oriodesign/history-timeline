@@ -1,25 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Wiki } from './wiki';
-import { SCALE } from "../constants";
 
-export function Item({ item, color }) {
-    const [wiki, setWiki] = useState(null);
-    function close() {
-        setWiki(null);
-    }
-    function onClick() {
-        if (wiki || !item.wiki) {
-            return close();
-        }
-        fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + item.wiki)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (json) {
-                setWiki(json);
-            })
-    }
+import { SCALE, START } from "../constants";
+
+export function Item({ item, color, onClick }) {
+   
 
     const style = {
         height: (item.level) * 10 + "px",
@@ -27,7 +12,7 @@ export function Item({ item, color }) {
     };
 
     const styleItemPosition = {
-        left: (item.date[0] + 1000) * SCALE + 'px',
+        left: (item.date[0] + START) * SCALE + 'px',
         zIndex: 100 - item.level,
         width: Math.abs(item.date[0] - item.date[1]) * SCALE + 'px',
     };
@@ -35,12 +20,9 @@ export function Item({ item, color }) {
     const nameStyle = {
         color: color
     };
-    const wikiStyle = {
-        left: style.left * SCALE + 'px'
-    }
-    return <div style={styleItemPosition} className={"item-position " + item.type}>
+    
+    return <div title={item.name + " (" + item.date[0] + " - " + item.date[1] + ")"} style={styleItemPosition} className={"item-position " + item.type}>
         <div style={nameStyle} className="item-name">{item.name}</div>
-        <div onClick={onClick} className="item" style={style}></div>
-        {wiki && <Wiki close={close} style={wikiStyle} wiki={wiki} />}
+        <div onClick={() => onClick(item)} className="item" style={style}></div>
     </div>;
 }

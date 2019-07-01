@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Item } from './item';
-
-import { SCALE } from "../constants";
+import { Wiki } from './wiki';
+import { SCALE, START } from "../constants";
 
 export function TimeLine({ timeline }) {
+
+    const [wiki, setWiki] = useState(null);
+    const [selectedItem, setSelectedItem] = useState(null);
+    function close() {
+        setWiki(null);
+        setSelectedItem(null);
+    }
+    function onClick(item) {
+        if (item === selectedItem || !item.wiki) {
+            return close();
+        }
+        setWiki(null);
+        setSelectedItem(item);
+        fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + item.wiki)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+                setWiki(json);
+            })
+    }
 
     const maxLevel = timeline.filteredTimeline.reduce((acc, curr) => {
         return Math.max(acc, curr.level);
@@ -14,13 +35,18 @@ export function TimeLine({ timeline }) {
     };
 
     const styleName = {
-        left: (timeline.date[0] + 1000) * SCALE + "px",
+        left: (timeline.date[0] + START) * SCALE + "px",
         width: Math.abs(timeline.date[0] - timeline.date[1]) * SCALE + "px",
         backgroundColor: timeline.color
     };
 
-    return <div style={style} className="timeline">
-        {timeline.filteredTimeline.map((item, index) => <Item color={timeline.color} index={index} key={index} item={item} />)}
+    const wikiStyle = {
+        left: selectedItem ? (selectedItem.date[0] + START) * SCALE + 'px' : 0,
+    }
+
+    return <div title={timeline.title} style={style} className="timeline">
+        {timeline.filteredTimeline.map((item, index) => <Item onClick={onClick} color={timeline.color} index={index} key={index} item={item} />)}
         <div style={styleName} className="timeline-name">{timeline.title}</div>
+        {wiki && <Wiki item={selectedItem} close={close} style={wikiStyle} wiki={wiki} />}
     </div>
 }
