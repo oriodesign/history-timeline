@@ -30,8 +30,8 @@ export function Editor() {
       }
 
       function findName(row, nameIndex) {
-        const nameElement = row.querySelectorAll("a")[nameIndex];
-        const text = nameElement ? nameElement.innerText
+        const nameElement = row.children[nameIndex].querySelector("a") || row.children[nameIndex].querySelector("b");
+        const text = nameElement && nameElement.innerText ? nameElement.innerText
           .trim()
           .replace("\n", "") : "";
 
@@ -55,7 +55,7 @@ export function Editor() {
       }
 
       function findWiki(row, wikiIndex) {
-        const nameElement = row.querySelectorAll("a")[wikiIndex];
+        const nameElement = row.children[wikiIndex].querySelector("a");
         const attr = nameElement ? nameElement.attributes : null;
         const wiki = attr && attr.href ? attr.href.value.replace("/wiki/", ""): "";
 
@@ -67,6 +67,9 @@ export function Editor() {
         const el = document.createElement("div");
         el.innerHTML = e.target.value;
         const trs = Array.from(el.querySelectorAll("tr"));
+
+        console.log(trs);
+
         const parsed = trs.map(t => {
           if (t.children.length >= 4) {
             
@@ -79,6 +82,10 @@ export function Editor() {
             let till = findTill(t, tillIndex);
             let wiki = findWiki(t, wikiIndex);
 
+            if (fromIndex === tillIndex) {
+              [from, till] = t.children[fromIndex].innerText.replace("BC", "").trim().split("–")
+            }
+
             
             // const [fromDate, tillDate] = t.children[fromIndex].innerText.replace("BC", "").trim().split("–")
             // const match = t.children[nameIndex].innerText.match(/\d+–\d+/);
@@ -87,7 +94,7 @@ export function Editor() {
             
 
             if (!from || !till || !name) {
-              return;
+              // return;
             }
 
             

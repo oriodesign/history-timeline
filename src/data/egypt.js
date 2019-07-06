@@ -71,7 +71,7 @@ export const ancientEgypt = {
         ruler("Wahibre Ibiau", [-1725, -1714], "Wahibre_Ibiau"),
         ruler("Merneferre Ay", [-1701, -1677], "Merneferre_Ay"),
         ruler("Merhotepre Ini", [-1677, -1675], "Merhotepre_Ini"),
-        ruler("Sankhenre Sewadjtu", [-1675, 1672], "Sankhenre_Sewadjtu"),
+        ruler("Sankhenre Sewadjtu", [-1675, -1672], "Sankhenre_Sewadjtu"),
         ruler("Mersekhemre Ined", [-1672, -1669], "Mersekhemre_Ined"),
         ruler("Merkawre Sobekhotep", [-1664, -1663], "Merkawre_Sobekhotep"),
         ruler("[67]", [-1663, -1663], "#cite_note-ryholt1997-67"),
