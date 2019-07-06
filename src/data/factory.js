@@ -18,6 +18,26 @@ export function ruler(name, date, wiki) {
     };
 }
 
+export function person(name, date, wiki) {
+    return {
+        name,
+        date,
+        wiki,
+        level: 1,
+        type: "person"
+    };
+}
+
+export function writer(name, date, wiki) {
+    return {
+        name,
+        date,
+        wiki,
+        level: 1,
+        type: "writer"
+    };
+}
+
 export function house(name, date, wiki) {
     return {
         name,

@@ -1,10 +1,46 @@
-import { period } from './factory';
+import { period, person, writer, ruler } from './factory';
+
+export const indusValley = {
+    title: "Indus Valley Civilisation",
+    wiki: "Indus_Valley_Civilisation",
+    date: [-3300, -1300],
+    timeline: []
+};
+
+export const vedicPeriod = {
+    title: "Vedic Period (India)",
+    wiki: "Vedic_period",
+    date: [-1500, -500],
+    timeline: []
+};
+
+export const mahajanapadas = {
+    title: "Mahajanapadas (India)",
+    wiki: "Mahajanapadas",
+    date: [-600, -345],
+    timeline: [
+        person("Gautama Buddha", [-563,-480], "Gautama_Buddha")
+    ]
+};
+
+export const maurya = {
+    title: "Maurya Empire (India)",
+    wiki: "Maurya_Empire",
+    date: [-321, -185],
+    timeline: [
+        ruler("Chandragupta Maurya", [-321,-297], "Chandragupta_Maurya"),
+        writer("Chanakya", [-321,-297], "Chanakya"),
+        ruler("Ashoka", [-268,-232], "Ashoka"),
+        ruler("Patanjali", [-200,-180], "Patanjali")
+    ]
+};
 
 export const india = {
     title: "India",
-    date: [-322, 2020],
+    date: [-300, 2020],
     timeline: [
-        period("Maurya Empire", [-322, -185], "Maurya_Empire"),
+        writer("Aśvaghoṣa", [80, 150], "Aśvaghoṣa"),
+        writer("Kālidāsa", [300, 400], "Kālidāsa"),
         period("Chola Empire", [-300, 1279], "Chola_dynasty"),
         period("Pandya Empire", [-300, 1650], "Pandya_dynasty"),
         period("Gupta Empire", [250, 543], "Gupta_Empire"),

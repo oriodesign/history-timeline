@@ -79,6 +79,20 @@
   width: 100%;
 }
 
+.century-title {
+  background: white;
+  z-index: 1000;
+  position: absolute;
+  top: -9px;
+}
+
+.century-wrapper {
+  position: absolute;
+  
+  height: 200vh;
+  top: 0;
+}
+
 .century {
   width: 100px;
   height: 100%;
@@ -124,7 +138,7 @@
   position: fixed;
   top: 7px;
   right: 3px;
-  z-index: 2000;
+  z-index: 20000;
 }
 
 textarea {
@@ -147,7 +161,7 @@ textarea {
   width: 100%;
   background: darkslategrey;
   color: white;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .main-header h1 {

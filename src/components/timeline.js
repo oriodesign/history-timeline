@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Item } from './item';
 import { Wiki } from './wiki';
 import { SCALE, START } from "../constants";
@@ -6,7 +6,14 @@ import { SCALE, START } from "../constants";
 export function TimeLine({ timeline, scrollX }) {
 
     const [wiki, setWiki] = useState(null);
+    const ref = useRef(null);
+    const [labelWidth, setLabelWidth] = useState(null);
     const [selectedItem, setSelectedItem] = useState(null);
+
+    useEffect(() => {
+        setLabelWidth(ref.current.getBoundingClientRect().width);
+    }, [ref.current]);
+
     function close() {
         setWiki(null);
         setSelectedItem(null);
@@ -34,7 +41,9 @@ export function TimeLine({ timeline, scrollX }) {
         height: (maxLevel + 3) * 10 + "px"
     };
 
-    const left = Math.max(scrollX, (timeline.date[0] + START) * SCALE); 
+    const maxLeft = ((timeline.date[1] + START)  * SCALE) - labelWidth;
+    const minLeft = (timeline.date[0] + START) * SCALE;
+    const left = scrollX > minLeft && scrollX < maxLeft ? scrollX : scrollX > maxLeft ? maxLeft : minLeft; 
 
     const styleName = {
         left: left + "px"
@@ -50,10 +59,12 @@ export function TimeLine({ timeline, scrollX }) {
         left: selectedItem ? (selectedItem.date[0] + START) * SCALE + 'px' : 0,
     }
 
+   console.log(labelWidth);
+
     return <div title={timeline.title} style={style} className="timeline">
         {timeline.filteredTimeline.map((item, index) => <Item onClick={onClick} color={timeline.color} index={index} key={index} item={item} />)}
-        <div style={styleName} className="timeline-name">{timeline.title}</div>
-        <div style={styleBar} className="timeline-bar" />
+        <div ref={ref} style={styleName} className="timeline-name">{timeline.title}</div>
+        <div onClick={e => onClick(timeline)} style={styleBar} className="timeline-bar" />
         {wiki && <Wiki item={selectedItem} close={close} style={wikiStyle} wiki={wiki} />}
     </div>
 }

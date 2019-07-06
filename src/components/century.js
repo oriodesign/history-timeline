@@ -11,5 +11,7 @@ export function Century({ year }) {
         left: (year + START) * SCALE + "px",
         background: selected ? "yellow" : null
     };
-    return <div onClick={() => setSelected(!selected)} style={style} className="century">{year}</div>
+    return <>
+    <div style={style} className="century-title">{year}</div>
+    <div onClick={() => setSelected(!selected)} style={style} className="century" /></>
 }

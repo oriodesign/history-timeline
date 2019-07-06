@@ -1,4 +1,4 @@
-import { india } from './india';
+import { india, maurya, mahajanapadas, vedicPeriod, indusValley } from './india';
 import { england } from './england';
 import { france } from './france';
 import { sweden } from './sweden';
@@ -11,6 +11,7 @@ import { italy } from './italy';
 import { sicily, naples, kingdomOfTwoSicily } from './sicily';
 import { spain } from './spain';
 import { ancientEgypt } from './egypt';
+import { assyriaEarlyPeriod, urukPeriod, jamdetNasrPeriod, earlyDynasticPeriod,  gutianDynasty, secondMarioteKingdom, thirdMarioteKingdom, kassiteDynasty, firstBabylonianEmpire, oldAssyrianEmpire, middleAssyrianEmpire, neoAssyrianEmpire, medianEmpire, abbasidCaliphate, achaemenidEmpire, mamlukSultanate, parthianEmpire, rashidunCaliphate, sasanianEmpire, seleucidEmpire, umayyadCaliphate } from './persia';
 
 const range = ["44", "88", "BB"];
 
@@ -24,6 +25,31 @@ range.forEach((r => {
 }));
 
 export const timelines = [
+    mahajanapadas, 
+    maurya,
+    indusValley,
+    urukPeriod,
+    vedicPeriod,
+    jamdetNasrPeriod,
+    assyriaEarlyPeriod,
+    earlyDynasticPeriod,
+    gutianDynasty,
+    secondMarioteKingdom,
+    thirdMarioteKingdom,
+    oldAssyrianEmpire,
+    middleAssyrianEmpire,
+    firstBabylonianEmpire,
+    kassiteDynasty,
+    neoAssyrianEmpire,
+    medianEmpire,
+    abbasidCaliphate,
+    achaemenidEmpire,
+    mamlukSultanate,
+    parthianEmpire,
+    rashidunCaliphate,
+    sasanianEmpire,
+    seleucidEmpire,
+    umayyadCaliphate,
     ancientEgypt,
     rome,
     holyRomanEmpire,
@@ -36,10 +62,13 @@ export const timelines = [
     kingdomOfTwoSicily,
     italy,
     florence,
-    india, 
+    india,
     england,
-    sweden
-].map((t, i) => {
+    sweden,
+
+].sort((a, b) => {
+    return a.date[0] < b.date[0] ? -1 : 1
+}).map((t, i) => {
     t.color = palette[i % palette.length]
     return t;
 });

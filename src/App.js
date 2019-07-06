@@ -18,10 +18,12 @@ function App() {
   const [showEditor, setShowEditor] = useState(false);
   const [threshold, setThreshold] = useState(1);
   const [scrollX, setScrollX] = useState(null);
+  const [scrollY, setScrollY] = useState(null);
 
   const scrollListener = debounce((e) => {
     setScrollX(window.scrollX);
-  }, 100);
+    setScrollY(window.scrollY);
+  }, 10);
 
   useEffect(() => {
     window.scroll(START * SCALE, 0);
@@ -50,14 +52,20 @@ function App() {
     return <Editor />
   }
 
+  const centuryWrapperStyle = {
+    top: scrollY + "px"
+  };
+
   return (
     <div className="App">
       
       <Header type={type} threshold={threshold} onChangeThreshold={onChangeThreshold} onChangeType={onChangeType} />
 
       <div className="timelines-wrapper">
+        <div style={centuryWrapperStyle} className="century-wrapper">
+          { getCenturies().map(y => <Century key={y} year={y} />)}
+        </div>
         {timelines.map(t => <TimeLine scrollX={scrollX} key={t.title} timeline={t} />)}
-        { getCenturies().map(y => <Century key={y} year={y} />)}
       </div>
       <button className="show-editor" onClick={() => setShowEditor(true)}>Show Editor</button>
     </div>
