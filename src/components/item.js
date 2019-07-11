@@ -21,7 +21,7 @@ export function Item({ item, color, onClick }) {
         color: color
     };
     
-    return <div title={item.name + " (" + item.date[0] + " - " + item.date[1] + ")"} style={styleItemPosition} className={"item-position " + item.type}>
+    return <div title={item.name + " (" + item.date[0] + ", " + item.date[1] + ")"} style={styleItemPosition} className={"item-position " + item.type}>
         <div style={nameStyle} className="item-name">{item.name}</div>
         <div onClick={() => onClick(item)} className="item" style={style}></div>
     </div>;

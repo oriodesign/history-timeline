@@ -28,7 +28,7 @@
   font-weight: bold;
 }
 
-.ruler .item-name {
+.ruler .item-name, .writer .item-name {
   /*transform: rotate(-45deg);*/
   transform-origin: bottom left;
   font-size: 10px;

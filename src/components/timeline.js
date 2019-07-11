@@ -38,7 +38,7 @@ export function TimeLine({ timeline, scrollX }) {
     }, 0);
 
     const style = {
-        height: (maxLevel + 3) * 10 + "px"
+        height: (maxLevel + 2) * 10 + "px"
     };
 
     const maxLeft = ((timeline.date[1] + START)  * SCALE) - labelWidth;

@@ -138,6 +138,26 @@ export const achaemenidEmpire = {
     ]
 };
 
+export const grecoBactrianKingdom = {
+    title: "Greco-Bactrian Kingdom",
+    wiki: "Greco-Bactrian_Kingdom",
+    date: [-256, -125],
+    timeline: []
+};
+
+export const kushanEmpire = {
+    title: "Kushan Empire",
+    wiki: "Kushan_Empire",
+    date: [30, 375],
+    timeline: [
+        ruler("Vima Kadphises", [90, 100], "Vima_Kadphises"),
+        ruler("Kanishka", [127, 150], "Kanishka"),
+        ruler("Huvishka", [150, 180], "Vāsishka"),
+        ruler("Vasudeva_I", [180, 232], "Vasudeva_I"),
+        ruler("Vāsishka", [247, 265], "Vāsishka")
+    ]
+};
+
 export const seleucidEmpire = {
     title: "Seleucid Empire",
     wiki: "Seleucid_Empire",

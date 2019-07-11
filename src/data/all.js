@@ -1,7 +1,8 @@
-import { india, maurya, mahajanapadas, vedicPeriod, indusValley } from './india';
+import { india, guptaEmpire, maurya, mahajanapadas, vedicPeriod, indusValley } from './india';
 import { england } from './england';
 import { france } from './france';
 import { sweden } from './sweden';
+import { athens, macedonia } from './greece';
 import { rome } from './rome';
 import { russia } from './russia';
 import { holyRomanEmpire } from './holy-roman';
@@ -11,7 +12,7 @@ import { italy } from './italy';
 import { sicily, naples, kingdomOfTwoSicily } from './sicily';
 import { spain } from './spain';
 import { ancientEgypt } from './egypt';
-import { assyriaEarlyPeriod, urukPeriod, jamdetNasrPeriod, earlyDynasticPeriod,  gutianDynasty, secondMarioteKingdom, thirdMarioteKingdom, kassiteDynasty, firstBabylonianEmpire, oldAssyrianEmpire, middleAssyrianEmpire, neoAssyrianEmpire, medianEmpire, abbasidCaliphate, achaemenidEmpire, mamlukSultanate, parthianEmpire, rashidunCaliphate, sasanianEmpire, seleucidEmpire, umayyadCaliphate } from './persia';
+import { neoBabylonian, kushanEmpire, grecoBactrianKingdom, assyriaEarlyPeriod, urukPeriod, jamdetNasrPeriod, earlyDynasticPeriod,  gutianDynasty, secondMarioteKingdom, thirdMarioteKingdom, kassiteDynasty, firstBabylonianEmpire, oldAssyrianEmpire, middleAssyrianEmpire, neoAssyrianEmpire, medianEmpire, abbasidCaliphate, achaemenidEmpire, mamlukSultanate, parthianEmpire, rashidunCaliphate, sasanianEmpire, seleucidEmpire, umayyadCaliphate } from './persia';
 
 const range = ["44", "88", "BB"];
 
@@ -25,9 +26,15 @@ range.forEach((r => {
 }));
 
 export const timelines = [
+    guptaEmpire,
+    athens,
+    macedonia,
+    kushanEmpire,
+    grecoBactrianKingdom,
     mahajanapadas, 
     maurya,
     indusValley,
+    neoBabylonian,
     urukPeriod,
     vedicPeriod,
     jamdetNasrPeriod,

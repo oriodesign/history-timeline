@@ -35,15 +35,37 @@ export const maurya = {
     ]
 };
 
+export const guptaEmpire = {
+    title: "Gupta Empire (Golden Age of India)",
+    wiki: "Gupta_Empire",
+    date: [250, 543],
+    timeline: [
+        ruler("Gupta", [250, 290], "Gupta_(king)"),
+        ruler("Ghatotkacha", [290, 319], ""),
+        ruler("Chandragupta I ", [319, 350], "Chandragupta_I"),
+        ruler("Samudragupta ", [350, 375], "Samudragupta"),
+        ruler("Chandragupta II ", [375, 415], "Chandragupta_II"),
+        ruler("Kumaragupta I", [415, 455], "Kumaragupta_I"),
+        ruler("Skandagupta", [455, 467], "Skandagupta"),
+        ruler("Purugupta", [467, 473], "Purugupta"),
+        ruler("Kumaragupta II", [473, 476], "Kumaragupta_II"),
+        ruler("Budhagupta", [476, 495], "Budhagupta"),
+        ruler("Narasimhagupta", [495, 530], "Narasimhagupta"),
+        ruler("Kumaragupta III", [530, 540], "Kumaragupta_III"),
+        ruler("Vishnugupta", [540, 543], "Vishnugupta_(Gupta_Empire)"),
+        writer("Kālidāsa", [360, 400], "Kālidāsa"),
+    ]
+};
+
+
 export const india = {
     title: "India",
     date: [-300, 2020],
     timeline: [
         writer("Aśvaghoṣa", [80, 150], "Aśvaghoṣa"),
-        writer("Kālidāsa", [300, 400], "Kālidāsa"),
+        writer("Vātsyāyana", [150, 200], "Vātsyāyana"),
         period("Chola Empire", [-300, 1279], "Chola_dynasty"),
         period("Pandya Empire", [-300, 1650], "Pandya_dynasty"),
-        period("Gupta Empire", [250, 543], "Gupta_Empire"),
         period("Pallava Empire", [275, 897], "Pallava_dynasty"),
         period("Chalukya Empire", [543, 753], "Chalukya_dynasty"),
         period("Pala Empire", [750, 1150], "Pala_Empire"),
