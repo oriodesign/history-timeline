@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-import { SCALE, START } from "../constants";
+import { START } from "../constants";
 
-export function Century({ year }) {
+export function Century({ year, scale }) {
 
     const [selected, setSelected] = useState(false);
 
     const style = {
-        width: 100 * SCALE + "px",
-        left: (year + START) * SCALE + "px",
+        width: 100 * scale + "px",
+        left: (year + START) * scale + "px",
         background: selected ? "yellow" : null
     };
     return <>

@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Item } from './item';
 import { Wiki } from './wiki';
-import { SCALE, START } from "../constants";
+import { START } from "../constants";
 
-export function TimeLine({ timeline, scrollX }) {
+export function TimeLine({ timeline, scrollX, scale }) {
 
     const [wiki, setWiki] = useState(null);
     const ref = useRef(null);
@@ -41,8 +41,8 @@ export function TimeLine({ timeline, scrollX }) {
         height: (maxLevel + 2) * 10 + "px"
     };
 
-    const maxLeft = ((timeline.date[1] + START)  * SCALE) - labelWidth;
-    const minLeft = (timeline.date[0] + START) * SCALE;
+    const maxLeft = ((timeline.date[1] + START)  * scale) - labelWidth;
+    const minLeft = (timeline.date[0] + START) * scale;
     const left = scrollX > minLeft && scrollX < maxLeft ? scrollX : scrollX > maxLeft ? maxLeft : minLeft; 
 
     const styleName = {
@@ -50,19 +50,17 @@ export function TimeLine({ timeline, scrollX }) {
     };
 
     const styleBar = {
-        left: (timeline.date[0] + START) * SCALE + "px",
-        width: Math.abs(timeline.date[0] - timeline.date[1]) * SCALE + "px",
+        left: (timeline.date[0] + START) * scale + "px",
+        width: Math.abs(timeline.date[0] - timeline.date[1]) * scale + "px",
         backgroundColor: timeline.color
     };
 
     const wikiStyle = {
-        left: selectedItem ? (selectedItem.date[0] + START) * SCALE + 'px' : 0,
+        left: selectedItem ? (selectedItem.date[0] + START) * scale + 'px' : 0,
     }
 
-   console.log(labelWidth);
-
     return <div title={timeline.title} style={style} className="timeline">
-        {timeline.filteredTimeline.map((item, index) => <Item onClick={onClick} color={timeline.color} index={index} key={index} item={item} />)}
+        {timeline.filteredTimeline.map((item, index) => <Item scale={scale} onClick={onClick} color={timeline.color} index={index} key={index} item={item} />)}
         <div ref={ref} style={styleName} className="timeline-name">{timeline.title}</div>
         <div onClick={e => onClick(timeline)} style={styleBar} className="timeline-bar" />
         {wiki && <Wiki item={selectedItem} close={close} style={wikiStyle} wiki={wiki} />}

@@ -1,10 +1,9 @@
-export function period(name, date, wiki) {
+export function state(title, date, wiki, timeline) {
     return {
-        name,
+        title,
         date,
         wiki,
-        level: 1,
-        type: "period"
+        timeline: timeline || []
     };
 }
 
@@ -15,6 +14,16 @@ export function ruler(name, date, wiki) {
         wiki,
         level: 1,
         type: "ruler"
+    };
+}
+
+export function monument(name, date, wiki) {
+    return {
+        name,
+        date,
+        wiki,
+        level: 1,
+        type: "monument"
     };
 }
 

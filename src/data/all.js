@@ -1,18 +1,18 @@
-import { india, guptaEmpire, maurya, mahajanapadas, vedicPeriod, indusValley } from './india';
+import { india  } from './india';
 import { england } from './england';
 import { france } from './france';
 import { sweden } from './sweden';
 import { athens, macedonia } from './greece';
 import { rome } from './rome';
 import { russia } from './russia';
-import { holyRomanEmpire } from './holy-roman';
+import { holyRomanEmpire } from './holyRoman';
 import { austrianEmpire } from './austrian-empire';
-import { florence } from './florence';
 import { italy } from './italy';
 import { sicily, naples, kingdomOfTwoSicily } from './sicily';
 import { spain } from './spain';
 import { ancientEgypt } from './egypt';
-import { neoBabylonian, kushanEmpire, grecoBactrianKingdom, assyriaEarlyPeriod, urukPeriod, jamdetNasrPeriod, earlyDynasticPeriod,  gutianDynasty, secondMarioteKingdom, thirdMarioteKingdom, kassiteDynasty, firstBabylonianEmpire, oldAssyrianEmpire, middleAssyrianEmpire, neoAssyrianEmpire, medianEmpire, abbasidCaliphate, achaemenidEmpire, mamlukSultanate, parthianEmpire, rashidunCaliphate, sasanianEmpire, seleucidEmpire, umayyadCaliphate } from './persia';
+import { persia } from './persia';
+import { southEastAsia } from './southEastAsia';
 
 const range = ["44", "88", "BB"];
 
@@ -26,37 +26,8 @@ range.forEach((r => {
 }));
 
 export const timelines = [
-    guptaEmpire,
     athens,
     macedonia,
-    kushanEmpire,
-    grecoBactrianKingdom,
-    mahajanapadas, 
-    maurya,
-    indusValley,
-    neoBabylonian,
-    urukPeriod,
-    vedicPeriod,
-    jamdetNasrPeriod,
-    assyriaEarlyPeriod,
-    earlyDynasticPeriod,
-    gutianDynasty,
-    secondMarioteKingdom,
-    thirdMarioteKingdom,
-    oldAssyrianEmpire,
-    middleAssyrianEmpire,
-    firstBabylonianEmpire,
-    kassiteDynasty,
-    neoAssyrianEmpire,
-    medianEmpire,
-    abbasidCaliphate,
-    achaemenidEmpire,
-    mamlukSultanate,
-    parthianEmpire,
-    rashidunCaliphate,
-    sasanianEmpire,
-    seleucidEmpire,
-    umayyadCaliphate,
     ancientEgypt,
     rome,
     holyRomanEmpire,
@@ -67,9 +38,10 @@ export const timelines = [
     sicily,
     naples,
     kingdomOfTwoSicily,
-    italy,
-    florence,
-    india,
+    ...southEastAsia,
+    ...italy,
+    ...india,
+    ...persia,
     england,
     sweden,
 

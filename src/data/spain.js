@@ -1,5 +1,5 @@
 
-import { period, ruler, house } from './factory';
+import { ruler, house } from './factory';
 
 export const spain = {
     title: "Spain",

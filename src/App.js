@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import { hydrateLevel } from './data/factory';
-import { SCALE, START } from './constants';
+import { START } from './constants';
 
 import { TimeLine } from './components/timeline';
 import { Century } from './components/century';
@@ -11,10 +11,11 @@ import { Header } from './components/header';
 import { timelines } from './data/all';
 import { debounce, getCenturies } from './util';
 
-
 function App() {
 
+  const [scale, setScale] = useState(3);
   const [type, setType] = useState("all");
+  const [region, setRegion] = useState("all");
   const [showEditor, setShowEditor] = useState(false);
   const [threshold, setThreshold] = useState(1);
   const [scrollX, setScrollX] = useState(null);
@@ -26,7 +27,7 @@ function App() {
   }, 10);
 
   useEffect(() => {
-    window.scroll(START * SCALE, 0);
+    window.scroll(START * scale, 0);
   }, []);
 
   useEffect(() => {
@@ -40,13 +41,17 @@ function App() {
     setType(e.target.value);
   }
 
+  function onChangeRegion(e) {
+    setRegion(e.target.value);
+  }
+
+  function onChangeScale(e) {
+    setScale(e.target.value);
+  }
+
   function onChangeThreshold(e) {
     setThreshold(e.target.value);
   }
-
-  timelines.forEach(t => {
-    t.filteredTimeline = hydrateLevel(t.timeline, type, threshold);
-  });
 
   if (showEditor) {
     return <Editor />
@@ -56,16 +61,30 @@ function App() {
     top: scrollY + "px"
   };
 
+  timelines.forEach(t => {
+    t.filteredTimeline = hydrateLevel(t.timeline, type, threshold);
+  });
+
   return (
     <div className="App">
       
-      <Header type={type} threshold={threshold} onChangeThreshold={onChangeThreshold} onChangeType={onChangeType} />
+      <Header 
+        scale={scale}
+        onChangeScale={onChangeScale}
+        region={region} 
+        onChangeRegion={onChangeRegion} 
+        type={type} 
+        threshold={threshold} 
+        onChangeThreshold={onChangeThreshold} 
+        onChangeType={onChangeType} />
 
       <div className="timelines-wrapper">
         <div style={centuryWrapperStyle} className="century-wrapper">
-          { getCenturies().map(y => <Century key={y} year={y} />)}
+          { getCenturies().map(y => <Century scale={scale} key={y} year={y} />)}
         </div>
-        {timelines.map(t => <TimeLine scrollX={scrollX} key={t.title} timeline={t} />)}
+        {timelines
+          .filter(t => t.region === region || region === "all")
+          .map(t => <TimeLine scale={scale} scrollX={scrollX} key={t.title} timeline={t} />)}
       </div>
       <button className="show-editor" onClick={() => setShowEditor(true)}>Show Editor</button>
     </div>

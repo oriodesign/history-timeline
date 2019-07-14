@@ -86,13 +86,6 @@
   top: -9px;
 }
 
-.century-wrapper {
-  position: absolute;
-  
-  height: 200vh;
-  top: 0;
-}
-
 .century {
   width: 100px;
   height: 100%;
@@ -164,12 +157,17 @@ textarea {
   z-index: 10000;
 }
 
+.main-header label {
+  font-size: 12px;
+  padding-left: 10px;
+}
+
 .main-header h1 {
   display: inline-block;
   font-size: 12px;
   padding: 0 20px;
 }
 
-.main-header select {
-  margin: 0 20px;
+.main-header select, .main-header input {
+  margin: 0 20px 0 10px;
 }

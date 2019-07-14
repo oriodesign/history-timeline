@@ -1,4 +1,4 @@
-import { period, ruler } from './factory';
+import { ruler } from './factory';
 
 export const ancientEgypt = {
     title: "Ancient Egypt",

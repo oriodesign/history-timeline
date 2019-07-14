@@ -1,4 +1,4 @@
-import { period, ruler, house, writer } from './factory';
+import { ruler, house, writer } from './factory';
 
 export const athens = {
     title: "Athens",
@@ -11,8 +11,6 @@ export const athens = {
 
     ]
 };
-
-
 
 export const macedonia = {
     title: "Kingdom of Macedonia",
