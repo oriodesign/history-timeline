@@ -6,6 +6,15 @@
   color: white;
 }
 
+.mouse-year {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .item-position:hover .item {
   opacity: 0.6;
   overflow: visible;
@@ -28,7 +37,7 @@
   font-weight: bold;
 }
 
-.ruler .item-name, .writer .item-name {
+.ruler .item-name, .writer .item-name, .monument .item-name {
   /*transform: rotate(-45deg);*/
   transform-origin: bottom left;
   font-size: 10px;

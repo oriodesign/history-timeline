@@ -137,9 +137,30 @@ state("Qutb Shahi dynasty", [1518, 1687], "Qutb_Shahi_dynasty", [
 ]),
 
 state("Mughal Empire", [1526, 1857], "Mughal_Empire", [
-    monument("Taj Mahal", [1632, 1643], "Taj_Mahal")
+    monument("Taj Mahal", [1632, 1643], "Taj_Mahal"),
+    ruler("Bābur", [1526, 1530], "Babur"),
+    ruler("Humayun", [1530, 1540], "Humayun"),
+    ruler("Akbar-i-Azam ", [1556, 1605], "Akbar"),
+    ruler("Jahangir", [1605, 1627], "Jahangir"),
+    ruler("Shah-Jahan-i-Azam", [1627, 1658], "Shah_Jahan"),
+    ruler("Alamgir I", [1658, 1707], "Aurangzeb"),
+    ruler("Bahadur Shah ", [1708, 1712], "Bahadur_Shah_I"),
+    ruler("Jahandar Shah", [1712, 1713], "Jahandar_Shah"),
+    ruler("Farrukhsiyar", [1713, 1719], "Farrukhsiyar"),
+    ruler("Rafi ud-Darajat", [1719, 1719], "Rafi_ud-Darajat"),
+    ruler("Rafi ud-Daulah", [1719, 1719], "Shah_Jahan_II"),
+    ruler("Muhammad Shah", [1719, 1748], "Muhammad_Shah"),
+    ruler("Ahmad Shah Bahadur", [1748, 1754], "Ahmad_Shah_Bahadur"),
+    ruler("Alamgir II", [1754, 1759], "Alamgir_II"),
+    ruler("Shah Jahan III", [1759, 1760], "Shah_Jahan_III"),
+    ruler("Shah Alam II", [1759, 1806], "Shah_Alam_II"),
+    ruler("Muhammad Shah Bahadur", [1788, 1788], "Mahmud_Shah_Bahadur"),
+    ruler("Akbar Shah II", [1806, 1837], "Akbar_Shah_II"),
+    ruler("Bahadur Shah II", [1837, 1857], "Bahadur_Shah_II")
 ]),
-
+state("Sur Empire", [1540, 1556], "Sur_Empire", [
+    ruler("Sher Shah Suri", [1540, 1545], "Sher_Shah_Suri"),
+]),
 state("Maratha Empire", [1674, 1818], "Maratha_Empire"),
 state("Sikh Empire", [1799, 1849], "Sikh_Empire"),
 state("East India Company", [1757, 1858], "Company_rule_in_India"),
