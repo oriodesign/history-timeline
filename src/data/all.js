@@ -34,7 +34,7 @@ export const timelines = [
     russia,
     austrianEmpire,
     france,
-    spain,
+    ...spain,
     sicily,
     naples,
     kingdomOfTwoSicily,

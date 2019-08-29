@@ -198,7 +198,12 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     title: "Rashidun Caliphate",
     wiki: "Rashidun_Caliphate",
     date: [632, 661],
-    timeline: []
+    timeline: [
+        ruler("Abu Bakr", [632, 634], "Abu_Bakr"),
+        ruler("Umar", [634, 644], "Umar"),
+        ruler("Uthman", [644, 656], "Uthman"),
+        ruler("Ali", [656, 661], "Ali"),
+    ]
 }, {
     title: "Umayyad Caliphate",
     wiki: "Umayyad_Caliphate",
@@ -206,7 +211,7 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     timeline: []
 }, {
     title: "Abbasid Caliphate",
-    wiki: "Abbasid  _Caliphate",
+    wiki: "Abbasid_Caliphate",
     date: [750, 1258],
     timeline: []
 }, {

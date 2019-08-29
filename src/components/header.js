@@ -20,6 +20,7 @@ export function Header({ region, scale, onChangeScale, onChangeRegion, type, onC
             <option>all</option>
             <option>india</option>
             <option>persia</option>
+            <option>spain</option>
             <option>south east asia</option>
         </select>
         

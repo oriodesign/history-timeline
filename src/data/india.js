@@ -132,10 +132,6 @@ state("Delhi Sultanate", [1206, 1526], "Delhi_Sultanate", [
 ]),
 state("Vijayanagara Empire", [1336, 1646], "Vijayanagara_Empire"),
 
-state("Qutb Shahi dynasty", [1518, 1687], "Qutb_Shahi_dynasty", [
-    monument("Charminar", [1591, 1592], "Charminar")
-]),
-
 state("Mughal Empire", [1526, 1857], "Mughal_Empire", [
     monument("Taj Mahal", [1632, 1643], "Taj_Mahal"),
     ruler("Bābur", [1526, 1530], "Babur"),
@@ -161,7 +157,17 @@ state("Mughal Empire", [1526, 1857], "Mughal_Empire", [
 state("Sur Empire", [1540, 1556], "Sur_Empire", [
     ruler("Sher Shah Suri", [1540, 1545], "Sher_Shah_Suri"),
 ]),
-state("Maratha Empire", [1674, 1818], "Maratha_Empire"),
+state("Bijapur sultanate", [1490, 1686], "Adil_Shahi_dynasty"),
+state("Golconda sultanate", [1518, 1687], "Qutb_Shahi_dynasty", [
+    monument("Charminar", [1591, 1592], "Charminar")
+]),
+state("Maratha Empire", [1674, 1818], "Maratha_Empire", [
+    ruler("Shivaji I", [1674, 1680], "Shivaji"),
+    ruler("Sambhaji", [1680, 1689], "Sambhaji"),
+    ruler("Rajaram I", [1689, 1700], "Rajaram_I"),
+    ruler("Shivaji II", [1700, 1708], "Shivaji"),
+    ruler("Shahu I", [1708, 1748], "Shahu_I"),
+]),
 state("Sikh Empire", [1799, 1849], "Sikh_Empire"),
 state("East India Company", [1757, 1858], "Company_rule_in_India"),
 state("British Raj", [1858, 1947], "British_Raj"),

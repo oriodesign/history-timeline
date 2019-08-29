@@ -1,7 +1,26 @@
 
-import { ruler, house } from './factory';
+import { ruler, state, house } from './factory';
 
-export const spain = {
+export const spain = [
+    state("Emirate of Cordoba", [756, 929], "Emirate_of_Córdoba"),
+    state("Caliphate of Cordoba", [929, 1031], "Caliphate_of_Córdoba"),
+
+    state("Taifa of Seville", [1023, 1091], "Taifa_of_Seville"),
+    state("Taifa of Córdoba", [1031, 1091], "Taifa_of_Córdoba"),
+    state("Taifa of Zaragoza", [1013, 1110], "Taifa_of_Zaragoza"),
+    state("Almoravid dynasty", [1040, 1147], "Almoravid_dynasty"),
+    state("Second Taifa Period", [1140, 1203], "Taifa#Second_period_(12th_century)"),
+    state("Almohad Caliphate", [1121, 1269], "Almohad_Caliphate"),
+    state("Third Taifa Period", [1232, 1287], "Taifa#Third_period_(13th_century)"),
+
+
+    state("Kingdom of Castile", [1065, 1475], "Kingdom_of_Castile"),
+    state("Kingdom of Leon", [910, 1230], "Kingdom_of_León"),
+    state("Kingdom of Aragon", [1035, 1475], "Kingdom_of_Aragon"),
+    state("Emirate of Granada", [1230, 1492], "Emirate_of_Granada"),
+
+    state("Kingdom of Portugal", [1139, 1910], "Kingdom_of_Portugal"),
+    {
     title: "Spain",
     date: [1475, 2020],
     timeline: [
@@ -42,4 +61,7 @@ export const spain = {
         ruler("Juan Carlos I", [1975, 2014], "Juan_Carlos_I"),
         ruler("Felipe VI", [2014, 2020], "Felipe_VI")
     ]
-};
+}].map(t => ({
+    ...t,
+    region: "spain"
+}));
