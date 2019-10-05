@@ -18,8 +18,10 @@ export function Header({ region, scale, onChangeScale, onChangeRegion, type, onC
         <label>Region</label>
         <select value={region} onChange={onChangeRegion}>
             <option>all</option>
+            <option>italy</option>
+            <option>britain</option>
             <option>india</option>
-            <option>persia</option>
+            <option>Middle-East</option>
             <option>spain</option>
             <option>south east asia</option>
         </select>

@@ -1,6 +1,6 @@
 import { ruler, state } from './factory';
 
-export const persia = [{
+export const middleEast = [{
     title: "Uruk period",
     wiki: "Uruk_period",
     date: [-4000, -3100],
@@ -208,8 +208,35 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     title: "Umayyad Caliphate",
     wiki: "Umayyad_Caliphate",
     date: [661, 750],
-    timeline: []
+    timeline: [
+        ruler("Muawiyah I", [661, 680], "Muawiyah_I"),
+        ruler("Yazid I", [680, 683], "Yazid_I"),
+        ruler("Muawiya II", [683, 684], "Muawiya_II"),
+        ruler("Marwan I", [684, 685], "Marwan_I"),
+        ruler("Abd_al-Malik ibn Marwan", [685, 705], "Abd_al-Malik_ibn_Marwan"),
+        ruler("Al-Walid I", [705, 715], "Al-Walid_I"),
+        ruler("Sulayman ibn Abd al-Malik", [715, 717], "Sulayman_ibn_Abd_al-Malik"),
+        ruler("Umar II", [717, 720], "Umar_II"),
+        ruler("Yazid II", [720, 724], "Yazid_II"),
+        ruler("Hisham ibn Abd al-Malik", [724, 743], "Hisham_ibn_Abd_al-Malik"),
+        ruler("Al-Walid_II", [743, 744], "Al-Walid_II"),
+        ruler("Marwan II", [744, 750], "Marwan_II"),
+    ]
 }, {
+    title: "Fatimid Caliphate",
+    wiki: "Fatimid_Caliphate",
+    date: [909, 1171],
+    timeline: []
+}, 
+{
+    title: "Ayyubid Sultanate",
+    wiki: "Ayyubid_dynasty",
+    date: [1171, 1260],
+    timeline: [
+        ruler("Saladin", [1174, 1193], "Saladin"),
+    ]
+},
+{
     title: "Abbasid Caliphate",
     wiki: "Abbasid_Caliphate",
     date: [750, 1258],
@@ -219,7 +246,40 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     wiki: "Mamluk_Sultanate_(Cairo)",
     date: [1250, 1517],
     timeline: []
-}].map(t => ({
+},{
+    title: "Kingdom of Jerusalem",
+    wiki: "Kingdom_of_Jerusalem",
+    date: [1099, 1291],
+    timeline: []
+},
+{
+    title: "Principality of Antioch",
+    wiki: "Principality_of_Antioch",
+    date: [1098, 1268],
+    timeline: []
+},
+{
+    title: "County of Tripoli",
+    wiki: "County_of_Tripoli",
+    date: [1098, 1298],
+    timeline: []
+},
+{
+    title: "County of Edessa",
+    wiki: "County_of_Edessa",
+    date: [1098, 1144],
+    timeline: []
+},
+{
+    title: "Ottoman Empire",
+    wiki: "Ottoman_Empire",
+    date: [1299, 1922],
+    timeline: [
+        ruler("Suleiman the magnificient", [1520, 1566], "Suleiman_the_Magnificent"),
+    ]
+}
+
+].map(t => ({
     ...t,
-    region: "persia"
+    region: "Middle-East"
 }));

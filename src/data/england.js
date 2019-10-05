@@ -1,11 +1,64 @@
-import { house, ruler } from './factory';
+import { house, ruler, person } from './factory';
 
-export const england = {
+export const england = [
+{
+    title: "Wessex",
+    wiki: "Indus_Valley_Civilisation",
+    date: [519, 927],
+    timeline: [
+        ruler("Cerdic", [519, 534], "Cerdic_of_Wessex"),
+        ruler("Ecgberht", [802, 839], "Ecgberht,_King_of_Wessex"),
+        ruler("Æthelwulf", [839, 858], "Æthelwulf,_King_of_Wessex"),
+        ruler("Alfred", [871, 899], "Alfred_the_Great"),
+        ruler("Edward", [899, 924], "Edward_the_Elder"),
+        ruler("Æthelstan", [924, 927], "Æthelstan"),
+    ]
+},
+{
+    title: "Sussex",
+    wiki: "Kingdom_of_Sussex",
+    date: [477, 860],
+    timeline: []
+},
+{
+    title: "Essex",
+    wiki: "Kingdom_of_Essex",
+    date: [527, 825],
+    timeline: []
+},
+{
+    title: "East Anglia",
+    wiki: "Kingdom_of_East_Anglia",
+    date: [550, 918],
+    timeline: []
+},
+{
+    title: "Kent",
+    date: [455, 871],
+    timeline: []
+},
+{
+    title: "Mercia",
+    date: [527, 918],
+    timeline: []
+},
+{
+    title: "Northumbria",
+    wiki: "Kingdom_of_Northumbria",
+    date: [593, 954],
+    timeline: [
+        person("Cuthbert", [634, 687], "Cuthbert"),
+        person("Bede", [673, 735], "Bede"),
+        ruler("Oswald", [634, 642], "Oswald_of_Northumbria"),
+        ruler("Oswiu", [642, 670], "Oswiu"),
+    ]
+},
+{
     title: "England",
-    date: [886, 2020],
+    date: [927, 2020],
     timeline: [
         // houses
-        house("House of Wessex", [886, 1013], "House_of_Wessex"),
+        house("House of Wessex", [927, 1013], "House_of_Wessex"),
         house("House of Denmark", [1013, 1014], "House_of_Denmark"),
         house("House of Wessex", [1014, 1016], "House_of_Wessex"),
         house("House of Denmark", [1016, 1042], "House_of_Denmark"),
@@ -24,7 +77,7 @@ export const england = {
         house("House of Stuart", [1660, 1707], "House_of_Stuart"),
 
         // Kings
-        ruler("Æthelstan", [927, 939], ""),
+        ruler("Æthelstan", [927, 939], "Æthelstan"),
         ruler("Edmund I", [939, 946], ""),
         ruler("Eadred", [946, 955], ""),
         ruler("Eadwig", [955, 959], ""),
@@ -93,4 +146,7 @@ export const england = {
         ruler("George VI", [1936, 1952 ], "George_VI"),
         ruler("Elizabeth II", [1952, 2020], "Elizabeth_II")
     ]
-};
+}].map(t => ({
+    ...t,
+    region: "britain"
+}));;

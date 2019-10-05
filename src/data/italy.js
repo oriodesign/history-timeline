@@ -1,6 +1,15 @@
 import { state, ruler } from './factory';
 
 export const italy = [
+    state("Kingdom of Italy", [476, 493], "Odoacer#King_of_Italy", [
+        ruler("Odoacer", [476, 493], "Odoacer"),
+    ]),
+    state("Ostrogothic Kingdom", [493, 553], "Ostrogothic_Kingdom", [
+        ruler("Theodoric the Great", [493, 526], "Theodoric_the_Great"),
+    ]),
+    state("Kingdom of the Lombards", [568, 774], "Kingdom_of_the_Lombards"),
+    state("Papal States", [754, 1870], "Papal_States"),
+
     state("March of Tuscany", [846, 1197], "March_of_Tuscany"),
     state("Republic of Florence", [1115, 1532], "Republic_of_Florence", [
         ruler("Cosimo de' Medici", [1433, 1463], "Cosimo_de%27_Medici"),
@@ -50,4 +59,7 @@ export const italy = [
         ruler("Victor Emmanuel III", [1900, 1946], "Victor_Emmanuel_III_of_Italy"),
         ruler("Umberto II", [1946, 1946], "Umberto_II_of_Italy"),
     ]
-}];
+}].map(t => ({
+    ...t,
+    region: "italy"
+}));;

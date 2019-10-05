@@ -11,7 +11,7 @@ import { italy } from './italy';
 import { sicily, naples, kingdomOfTwoSicily } from './sicily';
 import { spain } from './spain';
 import { ancientEgypt } from './egypt';
-import { persia } from './persia';
+import { middleEast } from './middle-east';
 import { southEastAsia } from './southEastAsia';
 
 const range = ["44", "88", "BB"];
@@ -41,8 +41,8 @@ export const timelines = [
     ...southEastAsia,
     ...italy,
     ...india,
-    ...persia,
-    england,
+    ...middleEast,
+    ...england,
     sweden,
 
 ].sort((a, b) => {
