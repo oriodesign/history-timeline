@@ -37,7 +37,12 @@
   font-weight: bold;
 }
 
-.ruler .item-name, .writer .item-name, .monument .item-name {
+.ruler .item-name, 
+.writer .item-name, 
+.war .item-name, 
+.battle .item-name, 
+.monument .item-name, 
+.person .item-name {
   /*transform: rotate(-45deg);*/
   transform-origin: bottom left;
   font-size: 10px;

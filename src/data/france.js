@@ -1,9 +1,13 @@
-import { ruler } from './factory';
+import { ruler, person } from './factory';
 
-export const france = {
+export const france = [{
     title: "France",
     date: [509, 2020],
     timeline: [
+
+        person("Hugues de Payens", [1070, 1136], "Hugues_de_Payens"),
+        person("Bernard of Clairvaux", [1090, 1153], "Bernard_of_Clairvaux"),
+
         ruler("Clovis I", [509, 511], "Clovis_I"),
         ruler("Theuderic I (Thierry)", [511, 533], "Theuderic_I"),
         ruler("Theudebert I (Thibert)", [533, 534], "Theudebert_I"),
@@ -33,7 +37,7 @@ export const france = {
         ruler("Childeric III (Childéric)", [743, 751], "Childeric_III"),
         ruler("Pepin the Short", [751, 768], "Pepin_the_Short"),
         ruler("Carloman I", [768, 771], "Carloman_I"),
-        ruler("CharlemagneCharlemagne", [768, 814], "Charlemagne"),
+        ruler("Charlemagne", [768, 814], "Charlemagne", '★'),
         ruler("Louis I the Pious", [814, 840], "Louis_the_Pious"),
         ruler("Charles I the Bald", [840, 877], "Charles_the_Bald"),
         ruler("Louis II the Stammerer", [877, 879], "Louis_the_Stammerer"),
@@ -93,4 +97,7 @@ export const france = {
         ruler("Louis-Philippe I the Citizen King", [1830, 1848], "Louis_Philippe_I"),
         ruler("Napoleon III(Napoléon)", [1852, 1870], "Napoleon_III_of_France")
     ]
-};
+}].map(t => ({
+    ...t,
+    regions: ["france", "europe"]
+}));

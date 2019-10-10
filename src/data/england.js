@@ -1,4 +1,4 @@
-import { house, ruler, person } from './factory';
+import { house, ruler, person, battle, war } from './factory';
 
 export const england = [
 {
@@ -9,9 +9,9 @@ export const england = [
         ruler("Cerdic", [519, 534], "Cerdic_of_Wessex"),
         ruler("Ecgberht", [802, 839], "Ecgberht,_King_of_Wessex"),
         ruler("Æthelwulf", [839, 858], "Æthelwulf,_King_of_Wessex"),
-        ruler("Alfred", [871, 899], "Alfred_the_Great"),
+        ruler("Alfred", [871, 899], "Alfred_the_Great", '★'),
         ruler("Edward", [899, 924], "Edward_the_Elder"),
-        ruler("Æthelstan", [924, 927], "Æthelstan"),
+        ruler("Æthelstan", [924, 927], "Æthelstan", '★'),
     ]
 },
 {
@@ -40,16 +40,26 @@ export const england = [
 {
     title: "Mercia",
     date: [527, 918],
-    timeline: []
+    timeline: [
+        ruler("Penda", [626, 655], "Penda_of_Mercia"),
+        ruler("Ethelbald", [716, 757], "Æthelbald_of_Mercia"),
+        ruler("Offa", [757, 796], "Offa_of_Mercia"),
+        ruler("Coenwulf", [796, 821], "Coenwulf_of_Mercia"),
+        ruler("Bernwulf", [823, 826], "Beornwulf_of_Mercia"),
+        ruler("Æthelred", [881, 911], "Æthelred,_Lord_of_the_Mercians"),
+        ruler("Æthelflæd", [911, 918], "Æthelflæd"),
+        ruler("Ælfwynn", [918, 918], "Ælfwynn"),
+    ]
 },
 {
     title: "Northumbria",
     wiki: "Kingdom_of_Northumbria",
     date: [593, 954],
     timeline: [
+        battle("Ivar the Boneless sacks york", 865),
         person("Cuthbert", [634, 687], "Cuthbert"),
         person("Bede", [673, 735], "Bede"),
-        ruler("Oswald", [634, 642], "Oswald_of_Northumbria"),
+        ruler("Oswald", [634, 642], "Oswald_of_Northumbria", '★'),
         ruler("Oswiu", [642, 670], "Oswiu"),
     ]
 },
@@ -77,7 +87,7 @@ export const england = [
         house("House of Stuart", [1660, 1707], "House_of_Stuart"),
 
         // Kings
-        ruler("Æthelstan", [927, 939], "Æthelstan"),
+        ruler("Æthelstan", [927, 939], "Æthelstan", '★'),
         ruler("Edmund I", [939, 946], ""),
         ruler("Eadred", [946, 955], ""),
         ruler("Eadwig", [955, 959], ""),
@@ -148,5 +158,5 @@ export const england = [
     ]
 }].map(t => ({
     ...t,
-    region: "britain"
+    regions: ["britain", "europe"]
 }));;

@@ -7,13 +7,14 @@ export function state(title, date, wiki, timeline) {
     };
 }
 
-export function ruler(name, date, wiki) {
+export function ruler(name, date, wiki, star) {
     return {
         name,
         date,
         wiki,
         level: 1,
-        type: "ruler"
+        type: "ruler",
+        star: star === '★'
     };
 }
 
@@ -24,6 +25,26 @@ export function monument(name, date, wiki) {
         wiki,
         level: 1,
         type: "monument"
+    };
+}
+
+export function battle(name, date, wiki) {
+    return {
+        name,
+        date: [date, date],
+        wiki,
+        level: 1,
+        type: "battle"
+    };
+}
+
+export function war(name, date, wiki) {
+    return {
+        name,
+        date,
+        wiki,
+        level: 1,
+        type: "war"
     };
 }
 
@@ -66,7 +87,7 @@ export function hydrateLevel(original, type, threshold) {
         return t.type === type || type === "all"
     })
     .filter(t => {
-        return t.date[1] - t.date[0] > threshold;
+        return t.date[1] - t.date[0] >= threshold;
     });
     for (let i = 0; i < timeline.length; i++) {
         const current = timeline[i].date;

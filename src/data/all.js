@@ -8,7 +8,7 @@ import { russia } from './russia';
 import { holyRomanEmpire } from './holyRoman';
 import { austrianEmpire } from './austrian-empire';
 import { italy } from './italy';
-import { sicily, naples, kingdomOfTwoSicily } from './sicily';
+import { sicily } from './sicily';
 import { spain } from './spain';
 import { ancientEgypt } from './egypt';
 import { middleEast } from './middle-east';
@@ -29,21 +29,19 @@ export const timelines = [
     athens,
     macedonia,
     ancientEgypt,
-    rome,
-    holyRomanEmpire,
     russia,
-    austrianEmpire,
-    france,
+    rome,
+    ...holyRomanEmpire,
+    ...austrianEmpire,
+    ...france,
     ...spain,
-    sicily,
-    naples,
-    kingdomOfTwoSicily,
+    ...sicily,
     ...southEastAsia,
     ...italy,
     ...india,
     ...middleEast,
     ...england,
-    sweden,
+    ...sweden,
 
 ].sort((a, b) => {
     return a.date[0] < b.date[0] ? -1 : 1

@@ -1,6 +1,6 @@
 import { ruler } from './factory';
 
-export const holyRomanEmpire = {
+export const holyRomanEmpire = [{
     title: "Holy Roman Empire",
     date: [800, 1806],
     timeline: [
@@ -46,6 +46,9 @@ export const holyRomanEmpire = {
         ruler("Leopold II", [1790, 1792], "Leopold_II,_Holy_Roman_Emperor"),
         ruler("Francis II", [1792, 1806], "Francis_II,_Holy_Roman_Emperor")
     ]
-};
+}].map(t => ({
+    ...t,
+    regions: ["germany", "europe"]
+}));
 
 

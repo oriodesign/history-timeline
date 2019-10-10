@@ -14,5 +14,5 @@ export const southEastAsia = [
     state("Cambodia", [1998, 2020], "Cambodia"),
 ].map(t => ({
     ...t,
-    region: "south east asia"
+    regions: ["south east asia"]
 }));;

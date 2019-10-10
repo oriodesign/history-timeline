@@ -179,5 +179,5 @@ state("Pallava Empire", [275, 897], "Pallava_dynasty"),
 state("Chalukya Empire", [543, 753], "Chalukya_dynasty")
 ].map(t => ({
     ...t,
-    region: "india"
+    regions: ["india"]
 }));

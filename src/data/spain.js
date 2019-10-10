@@ -63,5 +63,5 @@ export const spain = [
     ]
 }].map(t => ({
     ...t,
-    region: "spain"
+    regions: ["spain", "europe"]
 }));

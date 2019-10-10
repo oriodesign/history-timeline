@@ -89,7 +89,7 @@ function App() {
           { getCenturies().map(y => <Century scale={scale} key={y} year={y} />)}
         </div>
         {timelines
-          .filter(t => t.region === region || region === "all")
+          .filter(t => (t.regions && t.regions.includes(region)) || region === "all")
           .map(t => <TimeLine scale={scale} scrollX={scrollX} key={t.title} timeline={t} />)}
       </div>
       <button className="show-editor" onClick={() => setShowEditor(true)}>Show Editor</button>

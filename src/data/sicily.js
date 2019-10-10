@@ -1,12 +1,10 @@
 import { house, ruler } from './factory';
 
-export const kingdomOfTwoSicily = {
+export const sicily = [{
     title: "Kingdom of the Two Sicilies",
     date: [1816, 1861],
     timeline: []
-};
-
-export const naples = {
+}, {
     title: "Kingdom of Naples",
     date: [1282, 1816],
     timeline: [
@@ -47,9 +45,7 @@ export const naples = {
         ruler("Joachim I", [1808, 1815], "Joachim_Murat"),
         ruler("Ferdinand IV", [1815, 1816], "Ferdinand_I_of_the_Two_Sicilies")
     ]
-};
-
-export const sicily = {
+}, {
     title: "Sicily",
     date: [1071, 1816],
     timeline: [
@@ -105,4 +101,7 @@ export const sicily = {
         ruler("Charles V", [1735, 1759], "Charles_III_of_Spain"),
         ruler("Ferdinand III", [1759, 1816], "Ferdinand_I_of_the_Two_Sicilies")
     ]
-};
+}].map(t => ({
+    ...t,
+    regions: ["italy", "sicily", "europe"]
+}));

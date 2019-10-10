@@ -250,7 +250,19 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     title: "Kingdom of Jerusalem",
     wiki: "Kingdom_of_Jerusalem",
     date: [1099, 1291],
-    timeline: []
+    timeline: [
+        ruler("Godfrey", [1099, 1100], "Godfrey_of_Bouillon"),
+        ruler("Baldwin I", [1100, 1118], "Baldwin_I_of_Jerusalem"),
+        ruler("Baldwin II", [1118, 1131], "Baldwin_II_of_Jerusalem"),
+        ruler("Melisende", [1118, 1131], "Melisende,_Queen_of_Jerusalem"),
+        ruler("Fulk", [1131, 1143], "Fulk,_King_of_Jerusalem"),
+        ruler("Baldwin_III", [1143, 1163], "Baldwin_III_of_Jerusalem"),
+        ruler("Amalric", [1163, 1174], "Amalric_of_Jerusalem"),
+        ruler("Baldwin_IV", [1174, 1185], "Baldwin_IV_of_Jerusalem"),
+        ruler("Baldwin_V", [1185, 1186], "Baldwin_V_of_Jerusalem"),
+        ruler("Sibylla", [1186, 1190], "Sibylla,_Queen_of_Jerusalem"),
+        ruler("Guy of Lusignan", [1186, 1192], "Guy_of_Lusignan"),
+    ]
 },
 {
     title: "Principality of Antioch",
@@ -281,5 +293,5 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
 
 ].map(t => ({
     ...t,
-    region: "Middle-East"
+    regions: ["Middle-East"]
 }));

@@ -1,6 +1,6 @@
 import { house, ruler } from './factory';
 
-export const sweden = {
+export const sweden = [{
     title: "Sweden",
     date: [970, 2020],
     timeline: [
@@ -87,7 +87,10 @@ export const sweden = {
         ruler("Gustaf VI Adolf of Sweden", [1950, 1973], ""),
         ruler("Carl XVI Gustaf of Sweden", [1973, 2017], "")
     ]
-};
+}].map(t => ({
+    ...t,
+    regions: ["sweden", "europe"]
+}));;
 
 
 
