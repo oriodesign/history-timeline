@@ -21,12 +21,20 @@ export function Header({ region, scale, onChangeScale, onChangeRegion, type, onC
             <optgroup label="Continents">
                 <option>europe</option>
                 <option>Middle-East</option>
+                <option>asia</option>
             </optgroup>
             <optgroup label="Regions">
                 <option>italy</option>
                 <option>britain</option>
                 <option>india</option>
                 <option>spain</option>
+                <option>sweden</option>
+                <option>austria</option>
+                <option>germany</option>
+                <option>france</option>
+                <option>greece</option>
+                <option>egypt</option>
+                <option>russia</option>
                 <option>south east asia</option>
             </optgroup>
         </select>

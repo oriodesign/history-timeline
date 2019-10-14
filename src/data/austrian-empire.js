@@ -12,5 +12,4 @@ export const austrianEmpire = [{
 }].map(t => ({
     ...t,
     regions: ["austria", "europe"]
-}));;
-;
+}));

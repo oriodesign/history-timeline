@@ -2,7 +2,7 @@ import { india  } from './india';
 import { england } from './england';
 import { france } from './france';
 import { sweden } from './sweden';
-import { athens, macedonia } from './greece';
+import { greece } from './greece';
 import { rome } from './rome';
 import { russia } from './russia';
 import { holyRomanEmpire } from './holyRoman';
@@ -10,7 +10,7 @@ import { austrianEmpire } from './austrian-empire';
 import { italy } from './italy';
 import { sicily } from './sicily';
 import { spain } from './spain';
-import { ancientEgypt } from './egypt';
+import { egypt } from './egypt';
 import { middleEast } from './middle-east';
 import { southEastAsia } from './southEastAsia';
 
@@ -26,11 +26,10 @@ range.forEach((r => {
 }));
 
 export const timelines = [
-    athens,
-    macedonia,
-    ancientEgypt,
-    russia,
-    rome,
+    ...greece,
+    ...egypt,
+    ...russia,
+    ...rome,
     ...holyRomanEmpire,
     ...austrianEmpire,
     ...france,

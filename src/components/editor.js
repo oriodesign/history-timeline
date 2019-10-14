@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 
+const monthsAndAbbr = [
+  "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december",
+  "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec", "fl.", "fl. c. ", "after", "before"
+];
+
+const monthRegexp = new RegExp("[0-9]?[0-9]? ?(" + monthsAndAbbr.join("|") + ")", "ig");
+
 export function Editor() {
 
     const [result, setResult] = useState("");
-    const [nameIndex, setNameIndex] = useState(0);
-    const [wikiIndex, setWikiIndex] = useState(0);
-    const [fromIndex, setFromIndex] = useState(1);
-    const [tillIndex, setTillIndex] = useState(2);
+    const [nameIndex, setNameIndex] = useState(1);
+    const [wikiIndex, setWikiIndex] = useState(1);
+    const [fromIndex, setFromIndex] = useState(0);
+    const [tillIndex, setTillIndex] = useState(0);
 
     function parse(e) {
         const text = e.target.value;
@@ -47,6 +54,9 @@ export function Editor() {
       }
 
       function findTill(row, tillIndex) {
+        if (!row.children[tillIndex]) {
+          return "";
+        }
         const tillDate = row.children[tillIndex].innerText
           .replace("\n", "");
         const till = new Date(tillDate);
@@ -71,7 +81,7 @@ export function Editor() {
         console.log(trs);
 
         const parsed = trs.map(t => {
-          if (t.children.length >= 4) {
+          if (t.children.length >= 3) {
             
             if (t.children[nameIndex].nodeName === "TH") {
               return;
@@ -82,9 +92,17 @@ export function Editor() {
             let till = findTill(t, tillIndex);
             let wiki = findWiki(t, wikiIndex);
 
-            if (fromIndex === tillIndex) {
-              [from, till] = t.children[fromIndex].innerText.replace("BC", "").trim().split("–")
+            if (fromIndex === tillIndex === nameIndex) {
+              if (t.children[fromIndex].childNodes[2] &&  t.children[fromIndex].childNodes[2].wholeText) {
+                [from, till] = t.children[fromIndex].childNodes[2].wholeText.trim().split("-")
+              }
+            } else if (fromIndex === tillIndex) {
+              [from, till] = t.children[fromIndex].innerText.replace("BC", "").trim().split("to");
             }
+            
+
+            // from = from && from.replace ? from.replace(monthRegexp, "").trim() : "";
+            // till = till && till.replace ? till.replace(monthRegexp, "").trim() : "";
 
             
             // const [fromDate, tillDate] = t.children[fromIndex].innerText.replace("BC", "").trim().split("–")
@@ -92,7 +110,7 @@ export function Editor() {
             // console.log(t.children[nameIndex].innerText);
             // [from, till] = match ? match[0].split("–") : [0, 0];
             
-
+            console.log(from, till, name)
             if (!from || !till || !name) {
               // return;
             }

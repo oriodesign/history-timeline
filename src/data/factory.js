@@ -38,6 +38,16 @@ export function battle(name, date, wiki) {
     };
 }
 
+export function book(name, date, wiki) {
+    return {
+        name,
+        date: [date, date],
+        wiki,
+        level: 1,
+        type: "book"
+    };
+}
+
 export function war(name, date, wiki) {
     return {
         name,
@@ -48,23 +58,25 @@ export function war(name, date, wiki) {
     };
 }
 
-export function person(name, date, wiki) {
+export function person(name, date, wiki, star) {
     return {
         name,
         date,
         wiki,
         level: 1,
-        type: "person"
+        type: "person",
+        star: star === '★'
     };
 }
 
-export function writer(name, date, wiki) {
+export function writer(name, date, wiki, star) {
     return {
         name,
         date,
         wiki,
         level: 1,
-        type: "writer"
+        type: "writer",
+        star: star === '★'
     };
 }
 

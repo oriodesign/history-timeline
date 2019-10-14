@@ -1,6 +1,6 @@
 import { ruler } from './factory';
 
-export const ancientEgypt = {
+export const egypt = [{
     title: "Ancient Egypt",
     date: [-3150, -30],
     timeline: [
@@ -225,4 +225,7 @@ export const ancientEgypt = {
         ruler("Ptolemy XIV", [-47, -44], "Ptolemy_XIV_of_Egypt"),
         ruler("Ptolemy XV", [-44, -30], "Caesarion")
     ]
-};
+}].map(t => ({
+    ...t,
+    regions: ["egypt", "Middle-East"]
+}));

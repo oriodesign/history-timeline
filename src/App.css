@@ -42,11 +42,13 @@
 .war .item-name, 
 .battle .item-name, 
 .monument .item-name, 
+.event .item-name, 
+.book .item-name, 
 .person .item-name {
   /*transform: rotate(-45deg);*/
   transform-origin: bottom left;
   font-size: 10px;
-  top: -11px;
+  top: -9px;
 }
 
 .period .item-name, .house .item-name {

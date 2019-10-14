@@ -1,4 +1,4 @@
-import { ruler, state } from './factory';
+import { ruler, state, war, person, writer } from './factory';
 
 export const middleEast = [{
     title: "Uruk period",
@@ -192,7 +192,14 @@ export const middleEast = [{
 state("Saffarid", [861, 1003], "Saffarid_dynasty"),
 state("Samanid", [819, 999], "Samanid_Empire"),
 state("Ghaznavids", [977, 1186], "Ghaznavids"),
-state("Seljuk_Empire", [1037, 1194], "Seljuk_Empire"),
+state("Nizari Ismaili state", [1090, 1256], "Nizari_Ismaili_state", [
+    war("Second Crusade", [1147, 1149], "Second_Crusade"),
+]),
+state("Seljuk_Empire", [1037, 1194], "Seljuk_Empire", [
+    war("First Crusade", [1095, 1099], "First_Crusade"),
+    war("Second Crusade", [1147, 1149], "Second_Crusade"),
+    ruler("Nur ad-Din", [1146, 1174], "Nur_ad-Din_(died_1174)"),
+]),
 state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
 {
     title: "Rashidun Caliphate",
@@ -226,7 +233,10 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     title: "Fatimid Caliphate",
     wiki: "Fatimid_Caliphate",
     date: [909, 1171],
-    timeline: []
+    timeline: [
+        war("First Crusade", [1095, 1099], "First_Crusade"),
+        war("Second Crusade", [1147, 1149], "Second_Crusade"),
+    ]
 }, 
 {
     title: "Ayyubid Sultanate",
@@ -262,6 +272,8 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
         ruler("Baldwin_V", [1185, 1186], "Baldwin_V_of_Jerusalem"),
         ruler("Sibylla", [1186, 1190], "Sibylla,_Queen_of_Jerusalem"),
         ruler("Guy of Lusignan", [1186, 1192], "Guy_of_Lusignan"),
+
+        writer("William of Tyre", [1130, 1186], "William_of_Tyre")
     ]
 },
 {
