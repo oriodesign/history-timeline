@@ -89,9 +89,8 @@ export function house(name, date, wiki) {
         type: "house"
     };
 }
-
-export function hydrateLevel(original, type, threshold) {
-    const MAX_LEVEL = 10;
+const MAX_LEVELS = 20;
+export function hydrateLevel(original, type, threshold, scale) {
     original.sort((a, b) => a.date[0] < b.date[0] ? -1 : 1);
 
     const timeline = original
@@ -101,21 +100,39 @@ export function hydrateLevel(original, type, threshold) {
     .filter(t => {
         return t.date[1] - t.date[0] >= threshold;
     });
+
+    let levels = [];
+    let base = 1;
+    const padding = 5;
+
     for (let i = 0; i < timeline.length; i++) {
-        const current = timeline[i].date;
-        let level = timeline[i].type === "house" ? 1 : 2;
-
-        for (let j = 0; j < i; j++) {
-            const other = timeline[j].date;
-            if (timeline[i].type === "house") {
-                level = 1;
-            } else if (timeline[j].type !== "house" && overlaps(current[0], current[1], other[0], other[1])) {
-                level = Math.max(level + 1, timeline[j].level + 1);
-                level = level > MAX_LEVEL ? 2 : level; 
+        const current = timeline[i];
+        const charSize = current.star ? 7 : 5;
+        const nameSpace = charSize * current.name.length;
+        const blockStarts = current.date[0] * +scale;
+        const blockEnds = current.date[1] * +scale;
+        
+        const space = Math.max(blockStarts + nameSpace, blockEnds) + padding;
+        let lookingForSpace = true;
+        let levelIndex = 0;
+        if (current.type === "house") {
+            timeline[i].level = 1;
+            base = 2;
+            continue;
+        } 
+        while(lookingForSpace) {
+            if (typeof levels[levelIndex] === "undefined" || levels[levelIndex] < blockStarts) {
+                lookingForSpace = false;
+                levels[levelIndex] = space;
+                timeline[i].level = levelIndex + base;
+            } else if (levelIndex > MAX_LEVELS) {
+                lookingForSpace = false;
+                levels[0] = space;
+                timeline[i].level = base;
             }
+            levelIndex ++;
         }
-
-        timeline[i].level = level;
+        console.log(scale)
     }
 
     return timeline;

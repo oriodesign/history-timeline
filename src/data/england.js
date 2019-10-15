@@ -12,6 +12,7 @@ export const england = [
             ruler("Alfred", [871, 899], "Alfred_the_Great", '★'),
             ruler("Edward", [899, 924], "Edward_the_Elder"),
             ruler("Æthelstan", [924, 927], "Æthelstan", '★'),
+            ruler("Saint Boniface", [675, 754], "Saint_Boniface")
         ]
     },
     {
@@ -136,8 +137,10 @@ export const england = [
             person("Cuthbert", [634, 687], "Cuthbert"),
             person("Bede", [673, 735], "Bede", '★'),
             book("Ecclesiastical History", 731, "Ecclesiastical_History_of_the_English_People"),
+            book("Lindisfarne Gospels", 715, "Lindisfarne_Gospels"),
             ruler("Oswald", [634, 642], "Oswald_of_Northumbria", '★'),
             ruler("Oswiu", [642, 670], "Oswiu"),
+            person("Alcuin", [735, 804], "Alcuin")
         ]
     },
     {

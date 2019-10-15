@@ -68,7 +68,7 @@ function App() {
   };
 
   timelines.forEach(t => {
-    t.filteredTimeline = hydrateLevel(t.timeline, type, threshold);
+    t.filteredTimeline = hydrateLevel(t.timeline, type, threshold, scale);
   });
 
   return (
@@ -86,7 +86,7 @@ function App() {
 
       <div className="timelines-wrapper">
         <div style={centuryWrapperStyle} className="century-wrapper">
-          { getCenturies().map(y => <Century scale={scale} key={y} year={y} />)}
+          { getCenturies().map(y => <Century scrollY={scrollY} scale={scale} key={y} year={y} />)}
         </div>
         {timelines
           .filter(t => (t.regions && t.regions.includes(region)) || region === "all")
