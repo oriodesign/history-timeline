@@ -4,14 +4,9 @@ import { START } from "../constants";
 
 export function Century({ year, scale }) {
 
-    const [selected, setSelected] = useState(false);
-
     const style = {
         width: 100 * scale + "px",
-        left: (year + START) * scale + "px",
-        background: selected ? "yellow" : null
+        left: (year + START) * scale + "px"
     };
-    return <>
-    <div style={style} className="century-title">{year}</div>
-    <div onClick={() => setSelected(!selected)} style={style} className="century" /></>
+    return <><div style={style} className="century" /></>
 }

@@ -9,6 +9,7 @@ import { TimeLine } from './components/timeline';
 import { Century } from './components/century';
 import { Editor } from './components/editor';
 import { Header } from './components/header';
+import { Sidebar } from './components/sidebar';
 import { timelines } from './data/all';
 import { debounce, getCenturies } from './util';
 
@@ -22,6 +23,8 @@ function App() {
   const [scrollX, setScrollX] = useState(localStorage.getItem('scrollX') || 0);
   const [scrollY, setScrollY] = useState(localStorage.getItem('scrollY') || 0);
   const [mouseX, setMouseX] = useState(0);
+  const [selectedYear, setSelectedYear] = useState(0);
+
   const scrollOffset = Math.floor((scrollX / scale) - (START));
   const mouseXOffset = Math.floor((mouseX / scale)) + scrollOffset;
 
@@ -81,7 +84,9 @@ function App() {
 
   function showEvent(e) {
     if (e.key === "e") {
-      window.alert(years.find(y => y.year === mouseXOffset).events.join("\n\n"));
+      setSelectedYear(mouseXOffset);
+    } else if (e.key === "q") {
+      setSelectedYear(null);
     }
   }
 
@@ -90,7 +95,7 @@ function App() {
   }
 
   const centuryWrapperStyle = {
-    top: scrollY + "px"
+    // top: scrollY + "px"
   };
 
   timelines.forEach(t => {
@@ -119,12 +124,16 @@ function App() {
         {timelines
           .filter(t => (t.regions && t.regions.includes(region)) || region === "all")
           .map(t => <TimeLine scale={scale} scrollX={scrollX} key={t.title} timeline={t} />)}
+
+        {selectedYear && <div style={{left: (selectedYear + START) * scale + "px" }} className="selected-year" /> }
       </div>
       <button className="show-editor" onClick={() => setShowEditor(true)}>Show Editor</button>
 
       <div className="scroll-year">{scrollOffset}</div>
 
       <div className="mouse-year">{mouseXOffset}</div>
+     
+      {selectedYear && <Sidebar years={years} setSelectedYear={setSelectedYear} selectedYear={selectedYear} /> }
     </div>
   );
 }
