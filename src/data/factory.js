@@ -1,10 +1,25 @@
-export function state(title, date, wiki, timeline) {
+export function state(title, date, wiki, timeline, regions) {
     return {
         title,
         date,
         wiki,
-        timeline: timeline || []
+        timeline: timeline || [],
+        regions: regions || []
     };
+}
+
+export function year(year, events) {
+    return {
+        year,
+        events
+    }
+}
+
+export function group(states, regions) {
+    return states.map(s => ({
+            ...s,
+            regions: [...s.regions, ...regions]
+    }));
 }
 
 export function ruler(name, date, wiki, star) {
@@ -132,7 +147,6 @@ export function hydrateLevel(original, type, threshold, scale) {
             }
             levelIndex ++;
         }
-        console.log(scale)
     }
 
     return timeline;

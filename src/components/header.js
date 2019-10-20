@@ -13,6 +13,7 @@ export function Header({ region, scale, onChangeScale, onChangeRegion, type, onC
             <option>period</option>
             <option>monument</option>
             <option>house</option>
+            <option>war</option>
         </select>
 
         <label>Region</label>
@@ -35,6 +36,7 @@ export function Header({ region, scale, onChangeScale, onChangeRegion, type, onC
                 <option>greece</option>
                 <option>egypt</option>
                 <option>russia</option>
+                <option>mongolia</option>
                 <option>south east asia</option>
             </optgroup>
         </select>

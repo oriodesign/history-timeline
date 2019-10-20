@@ -147,6 +147,12 @@ export const england = [
         title: "England",
         date: [927, 2020],
         timeline: [
+            // Battles
+            war("Hastings", [1066], "Battle_of_Hastings"),
+
+            // War
+            war("Third Crusade", [1189, 1192], "Third_Crusade"),
+
             // houses
             house("House of Wessex", [927, 1013], "House_of_Wessex"),
             house("House of Denmark", [1013, 1014], "House_of_Denmark"),

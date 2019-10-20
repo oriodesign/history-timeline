@@ -13,6 +13,7 @@ import { spain } from './spain';
 import { egypt } from './egypt';
 import { middleEast } from './middle-east';
 import { southEastAsia } from './southEastAsia';
+import { mongolia } from './mongolia';
 
 const range = ["44", "88", "BB"];
 
@@ -41,6 +42,7 @@ export const timelines = [
     ...middleEast,
     ...england,
     ...sweden,
+    ...mongolia
 
 ].sort((a, b) => {
     return a.date[0] < b.date[0] ? -1 : 1

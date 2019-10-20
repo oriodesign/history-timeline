@@ -1,4 +1,4 @@
-import { ruler, state } from './factory';
+import { ruler, state, war, person } from './factory';
 
 export const holyRomanEmpire = [
     state("East Francia", [843, 962], "East_Francia", [
@@ -75,6 +75,13 @@ export const holyRomanEmpire = [
         title: "Holy Roman Empire",
         date: [800, 1806],
         timeline: [
+            // War
+            war("Second Crusade", [1147, 1149], "Second_Crusade"),
+            war("Third Crusade", [1189, 1192], "Third_Crusade"),
+            war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
+            war("Fifth_Crusade", [1217, 1221], "Fifth_Crusade"),
+
+            // Ruler
             ruler("Charles I", [800, 814], "Charlemagne"),
             ruler("Louis I", [814, 840], "Louis_the_Pious"),
             ruler("Lothair I", [823, 855], "Lothair_I"),

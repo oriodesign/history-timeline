@@ -1,9 +1,17 @@
-import { ruler, person } from './factory';
+import { ruler, person, war, battle } from './factory';
 
 export const france = [{
     title: "France",
     date: [509, 2020],
     timeline: [
+        // Battle
+        battle("Tours", [732], "Battle_of_Tours"),
+
+        // War
+        war("First Crusade", [1095, 1099], "First_Crusade"),
+        war("Second Crusade", [1147, 1149], "Second_Crusade"),
+        war("Third Crusade", [1189, 1192], "Third_Crusade"),
+        war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
 
         person("Hugues de Payens", [1070, 1136], "Hugues_de_Payens"),
         person("Bernard of Clairvaux", [1090, 1153], "Bernard_of_Clairvaux"),
@@ -35,7 +43,8 @@ export const france = [{
         ruler("Chilperic II (Chilpéric II)", [715, 721], "Chilperic_II"),
         ruler("Theuderic IV", [721, 737], "Theuderic_IV"),
         ruler("Childeric III (Childéric)", [743, 751], "Childeric_III"),
-        ruler("Pepin the Short", [751, 768], "Pepin_the_Short"),
+
+        ruler("Pepin the Short", [751, 768], "Pepin_the_Short", '★'),
         ruler("Carloman I", [768, 771], "Carloman_I"),
         ruler("Charlemagne", [768, 814], "Charlemagne", '★'),
         ruler("Louis I the Pious", [814, 840], "Louis_the_Pious"),
@@ -56,10 +65,10 @@ export const france = [{
         ruler("Henry I(Henri)", [1031, 1060], "Henry_I_of_France"),
         ruler("Philip I the Amorous(Philippe)", [1060, 1108], "Philip_I_of_France"),
         ruler("Louis VI the Fat", [1108, 1137], "Louis_VI_of_France"),
-        ruler("Louis VII the Young", [1137, 1180], "Louis_VII_of_France"),
-        ruler("Philip II Augustus (Philippe Auguste)", [1180, 1223], "Philip_II_of_France"),
+        ruler("Louis VII the Young", [1137, 1180], "Louis_VII_of_France", '★'),
+        ruler("Philip II Augustus", [1180, 1223], "Philip_II_of_France", '★'),
         ruler("Louis VIII the Lion", [1223, 1226], "Louis_VIII_of_France"),
-        ruler("Louis IX the Saint (Saint Louis)", [1226, 1270], "Louis_IX_of_France"),
+        ruler("Louis IX the Saint (Saint Louis)", [1226, 1270], "Louis_IX_of_France", '★'),
         ruler("Philip III the Bold (Philippe)", [1270, 1285], "Philip_III_of_France"),
         ruler("Philip IV the Fair, the Iron King (Philippe)", [1285, 1314], "Philip_IV_of_France"),
         ruler("Louis X the Quarreller", [1314, 1316], "Louis_X_of_France"),

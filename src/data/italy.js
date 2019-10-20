@@ -1,4 +1,4 @@
-import { state, ruler } from './factory';
+import { state, ruler, war, person } from './factory';
 
 export const italy = [
     state("Kingdom of Italy", [476, 493], "Odoacer#King_of_Italy", [
@@ -114,6 +114,15 @@ export const italy = [
         ruler("Pope-elect Stephen", [752, 752], "Pope-elect_Stephen"),
     ]),
     state("Papal States", [754, 1870], "Papal_States", [
+        war("First Crusade", [1095, 1099], "First_Crusade"),
+        war("Second Crusade", [1147, 1149], "Second_Crusade"),
+        war("Third Crusade", [1189, 1192], "Third_Crusade"),
+        war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
+        war("Fifth_Crusade", [1217, 1221], "Fifth_Crusade"),
+
+
+        person("Francis of Assisi", [1181, 1226], "Francis_of_Assisi", '★'),
+
         ruler("Stephen II", [752, 757], "Pope_Stephen_II"),
         ruler("Paul I", [757, 767], "Pope_Paul_I"),
         ruler("Stephen III", [768, 772], "Pope_Stephen_III"),
@@ -191,7 +200,7 @@ export const italy = [
         ruler("Gregory VII", [1073, 1085], "Pope_Gregory_VII"),
         ruler("Clement III", [1080, 1100], "Antipope_Clement_III"),
         ruler("Victor III", [1086, 1087], "Pope_Victor_III"),
-        ruler("Urban II", [1088, 1099], "Pope_Urban_II"),
+        ruler("Urban II", [1088, 1099], "Pope_Urban_II", '★'),
         ruler("Paschal II", [1099, 1118], "Pope_Paschal_II"),
         ruler("Theodoric", [1100, 1101], "Antipope_Theodoric"),
         ruler("Adalbert", [1101, 1102], "Antipope_Adalbert"),
@@ -219,8 +228,8 @@ export const italy = [
         ruler("Gregory VIII", [1187, 1187], "Pope_Gregory_VIII"),
         ruler("Clement III", [1187, 1191[15]], "Pope_Clement_III"),
         ruler("Celestine III", [1191, 1198], "Pope_Celestine_III"),
-        ruler("Innocent III", [1198, 1216], "Pope_Innocent_III"),
-        ruler("Honorius III", [1216, 1227], "Pope_Honorius_III"),
+        ruler("Innocent III", [1198, 1216], "Pope_Innocent_III", '★'),
+        ruler("Honorius III", [1216, 1227], "Pope_Honorius_III", '★'),
         ruler("Gregory IX", [1227, 1241], "Pope_Gregory_IX"),
         ruler("Celestine IV", [1241, 1241], "Pope_Celestine_IV"),
         ruler("Innocent IV", [1243, 1254], "Pope_Innocent_IV"),
@@ -327,7 +336,9 @@ export const italy = [
         ruler("Benedict XVI", [2005, 2013], "Pope_Benedict_XVI"),
         ruler("Francis", [2013, 2020], "Pope_Francis")
     ]),
-
+    state("Republic of Venice", [697, 1797], "Republic_of_Venice", [
+        war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
+    ]),
     state("March of Tuscany", [846, 1197], "March_of_Tuscany"),
     state("Republic of Florence", [1115, 1532], "Republic_of_Florence", [
         ruler("Cosimo de' Medici", [1433, 1463], "Cosimo_de%27_Medici"),

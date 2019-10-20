@@ -3,6 +3,7 @@ import './App.css';
 
 import { hydrateLevel } from './data/factory';
 import { START } from './constants';
+import { years } from './years';
 
 import { TimeLine } from './components/timeline';
 import { Century } from './components/century';
@@ -20,6 +21,9 @@ function App() {
   const [threshold, setThreshold] = useState(localStorage.getItem('threshold') || 1);
   const [scrollX, setScrollX] = useState(localStorage.getItem('scrollX') || 0);
   const [scrollY, setScrollY] = useState(localStorage.getItem('scrollY') || 0);
+  const [mouseX, setMouseX] = useState(0);
+  const scrollOffset = Math.floor((scrollX / scale) - (START));
+  const mouseXOffset = Math.floor((mouseX / scale)) + scrollOffset;
 
   const scrollListener = debounce((e) => {
     setScrollX(window.scrollX);
@@ -27,6 +31,22 @@ function App() {
     localStorage.setItem('scrollX', window.scrollX);
     localStorage.setItem('scrollY', window.scrollY);
   }, 10);
+
+  const mouseMoveListener = ((e) => {
+    requestAnimationFrame(() => {
+      setMouseX(e.clientX);
+    })
+    
+  });
+
+  useEffect(() => {
+    window.addEventListener("mousemove", mouseMoveListener);
+    window.addEventListener("keypress", showEvent);
+    return () => {
+      window.removeEventListener("keypress", showEvent);
+      window.removeEventListener("mousemove", mouseMoveListener);
+    };
+  });
 
   useEffect(() => {
     window.scroll(scrollX, scrollY);
@@ -59,6 +79,12 @@ function App() {
     setThreshold(e.target.value);
   }
 
+  function showEvent(e) {
+    if (e.key === "e") {
+      window.alert(years.find(y => y.year === mouseXOffset).events.join("\n\n"));
+    }
+  }
+
   if (showEditor) {
     return <Editor />
   }
@@ -70,6 +96,8 @@ function App() {
   timelines.forEach(t => {
     t.filteredTimeline = hydrateLevel(t.timeline, type, threshold, scale);
   });
+
+  
 
   return (
     <div className="App">
@@ -94,7 +122,9 @@ function App() {
       </div>
       <button className="show-editor" onClick={() => setShowEditor(true)}>Show Editor</button>
 
-      <div className="mouse-year">{Math.floor((scrollX / scale) - (START))}</div>
+      <div className="scroll-year">{scrollOffset}</div>
+
+      <div className="mouse-year">{mouseXOffset}</div>
     </div>
   );
 }

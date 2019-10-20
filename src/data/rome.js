@@ -1,4 +1,4 @@
-import { ruler, state, battle } from './factory';
+import { ruler, state, battle, war } from './factory';
 
 export const rome = [{
     title: "Roman Empire",
@@ -98,6 +98,9 @@ state("Western Roman Empire", [395, 476], "", [
 ]), 
 
 state("Eastern Roman Empire", [395, 1453], "", [
+    // War
+    war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
+
     ruler("Arcadius", [395, 408], "Arcadius"),
     ruler("Theodosius II", [402, 450], "Theodosius_II"),
     ruler("Pulcheria", [450, 453], "Pulcheria"),
@@ -190,5 +193,5 @@ state("Eastern Roman Empire", [395, 1453], "", [
     ruler("Constantine XI Palaiologos", [1449, 1453], "Constantine_XI_Palaiologos")
 ])].map(t => ({
         ...t,
-        regions: ["italy", "europe"]
+        regions: ["italy", "europe", "Middle-East"]
     }));;

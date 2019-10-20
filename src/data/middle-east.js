@@ -1,4 +1,4 @@
-import { ruler, state, war, person, writer } from './factory';
+import { ruler, state, war, person, battle, writer } from './factory';
 
 export const middleEast = [{
     title: "Uruk period",
@@ -244,18 +244,25 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     date: [1171, 1260],
     timeline: [
         ruler("Saladin", [1174, 1193], "Saladin"),
+        war("Third Crusade", [1189, 1192], "Third_Crusade"),
+        war("Fifth_Crusade", [1217, 1221], "Fifth_Crusade"),
     ]
 },
 {
     title: "Abbasid Caliphate",
     wiki: "Abbasid_Caliphate",
     date: [750, 1258],
-    timeline: []
+    timeline: [
+        battle("Siege of Baghdad", 1258, "Siege_of_Baghdad_(1258)")
+    ]
 }, {
     title: "Mamluk Sultanate of Cairo",
     wiki: "Mamluk_Sultanate_(Cairo)",
     date: [1250, 1517],
-    timeline: []
+    timeline: [
+        ruler("Aybak", [1254, 1257], "Aybak"),
+        ruler("Baibars", [1260, 1277], "Baibars")
+    ]
 },{
     title: "Kingdom of Jerusalem",
     wiki: "Kingdom_of_Jerusalem",
@@ -273,20 +280,32 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
         ruler("Sibylla", [1186, 1190], "Sibylla,_Queen_of_Jerusalem"),
         ruler("Guy of Lusignan", [1186, 1192], "Guy_of_Lusignan"),
 
-        writer("William of Tyre", [1130, 1186], "William_of_Tyre")
+        writer("William of Tyre", [1130, 1186], "William_of_Tyre"),
+        war("Second Crusade", [1147, 1149], "Second_Crusade"),
+        war("Third Crusade", [1189, 1192], "Third_Crusade"),
+        war("Fifth_Crusade", [1217, 1221], "Fifth_Crusade"),
+        battle("Battle of Hattin", 1187, "Battle_of_Hattin"),
+        battle("Battle of la Forbie", 1244, "Battle_of_La_Forbie")
+        
     ]
 },
 {
     title: "Principality of Antioch",
     wiki: "Principality_of_Antioch",
     date: [1098, 1268],
-    timeline: []
+    timeline: [
+        war("Second Crusade", [1147, 1149], "Second_Crusade"),
+        war("Third Crusade", [1189, 1192], "Third_Crusade"),
+    ]
 },
 {
     title: "County of Tripoli",
     wiki: "County_of_Tripoli",
     date: [1098, 1298],
-    timeline: []
+    timeline: [
+        war("Second Crusade", [1147, 1149], "Second_Crusade"),
+        war("Third Crusade", [1189, 1192], "Third_Crusade"),
+    ]
 },
 {
     title: "County of Edessa",
