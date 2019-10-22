@@ -89,7 +89,7 @@ export const sweden = [{
     ]
 }].map(t => ({
     ...t,
-    regions: ["sweden", "europe"]
+    regions: ["sweden", "europe", "northern europe"]
 }));;
 
 

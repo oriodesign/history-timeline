@@ -99,6 +99,7 @@ state("Western Roman Empire", [395, 476], "", [
 
 state("Eastern Roman Empire", [395, 1453], "", [
     // War
+    war("Crusade_of_1101", [1101, 1101], "Crusade_of_1101"),
     war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
 
     ruler("Arcadius", [395, 408], "Arcadius"),

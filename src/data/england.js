@@ -152,6 +152,8 @@ export const england = [
 
             // War
             war("Third Crusade", [1189, 1192], "Third_Crusade"),
+            war("Barons%27_Crusade", [1239, 1241], "Barons%27_Crusade"),
+            war("Ninth Crusade", [1271, 1272], "Ninth_Crusade"),
 
             // houses
             house("House of Wessex", [927, 1013], "House_of_Wessex"),
@@ -172,23 +174,27 @@ export const england = [
             house("Interregnum", [1649, 1660], "Interregnum_(1649–1660)"),
             house("House of Stuart", [1660, 1707], "House_of_Stuart"),
 
+            // bishops
+            person("Dunstan", [927, 988], "Dunstan"),
+
             // Kings
             ruler("Æthelstan", [927, 939], "Æthelstan", '★'),
-            ruler("Edmund I", [939, 946], ""),
-            ruler("Eadred", [946, 955], ""),
-            ruler("Eadwig", [955, 959], ""),
-            ruler("Edgar the Peaceful", [959, 975], ""),
-            ruler("Edward the Martyr", [975, 978], ""),
-            ruler("Æthelred the Unready", [978, 1013], ""),
-            ruler("Sweyn Forkbeard", [1013, 1014], ""),
-            ruler("Æthelred the Unready", [1014, 1016], ""),
-            ruler("Edmund Ironside", [1016, 1016], ""),
-            ruler("Cnut the Great", [1016, 1035], ""),
+            ruler("Edmund I", [939, 946], "Edmund_I"),
+            ruler("Eadred", [946, 955], "Eadred"),
+            ruler("Eadwig", [955, 959], "Eadwig"),
+            ruler("Edgar the Peaceful", [959, 975], "Edgar_the_Peaceful"),
+            ruler("Edward the Martyr", [975, 978], "Edward_the_Martyr"),
+            ruler("Æthelred the Unready", [978, 1013], "Æthelred_the_Unready", '★'),
+            ruler("Sweyn Forkbeard", [1013, 1014], "Sweyn_Forkbeard"),
+            ruler("Æthelred the Unready", [1014, 1016], "Æthelred_the_Unready"),
+            ruler("Edmund Ironside", [1016, 1016], "Edmund_Ironside"),
+            ruler("Cnut the Great", [1016, 1035], "Cnut_the_Great"),
             ruler("Harold Harefoot", [1035, 1040], ""),
             ruler("Harthacnut", [1040, 1042], ""),
             ruler("Edward the Confessor", [1042, 1066], ""),
             ruler("Harold Godwinson", [1066, 1066], ""),
             ruler("Edgar the Ætheling", [1066, 1066], ""),
+
             ruler("William I", [1066, 1087], ""),
             ruler("William II", [1087, 1100], ""),
             ruler("Henry I", [1100, 1135], ""),
@@ -244,5 +250,5 @@ export const england = [
         ]
     }].map(t => ({
         ...t,
-        regions: ["britain", "europe"]
+        regions: ["britain", "europe", "northern europe"]
     }));;

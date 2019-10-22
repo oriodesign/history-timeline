@@ -21,6 +21,7 @@ export function Header({ region, scale, onChangeScale, onChangeRegion, type, onC
             <option>all</option>
             <optgroup label="Continents">
                 <option>europe</option>
+                <option>northern europe</option>
                 <option>Middle-East</option>
                 <option>asia</option>
             </optgroup>
@@ -30,6 +31,7 @@ export function Header({ region, scale, onChangeScale, onChangeRegion, type, onC
                 <option>india</option>
                 <option>spain</option>
                 <option>sweden</option>
+                <option>norway</option>
                 <option>austria</option>
                 <option>germany</option>
                 <option>france</option>

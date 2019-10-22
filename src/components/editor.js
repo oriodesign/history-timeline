@@ -92,12 +92,15 @@ export function Editor() {
             let till = findTill(t, tillIndex);
             let wiki = findWiki(t, wikiIndex);
 
-            if (fromIndex === tillIndex === nameIndex) {
+            if (fromIndex === tillIndex && tillIndex  === nameIndex) {
               if (t.children[fromIndex].childNodes[2] &&  t.children[fromIndex].childNodes[2].wholeText) {
-                [from, till] = t.children[fromIndex].childNodes[2].wholeText.trim().split("-")
+                [from, till] = t.children[fromIndex].childNodes[2].wholeText.trim().split("–");
+                console.log("t", from);
+                from = from.slice(-6);
               }
             } else if (fromIndex === tillIndex) {
-              [from, till] = t.children[fromIndex].innerText.replace("BC", "").trim().split("to");
+              [from, till] = t.children[fromIndex].innerText.replace("BC", "").trim().split("–");
+              from = from.slice(-6);
             }
             
 

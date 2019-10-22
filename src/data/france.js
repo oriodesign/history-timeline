@@ -9,9 +9,14 @@ export const france = [{
 
         // War
         war("First Crusade", [1095, 1099], "First_Crusade"),
+        war("Crusade_of_1101", [1101, 1101], "Crusade_of_1101"),
         war("Second Crusade", [1147, 1149], "Second_Crusade"),
         war("Third Crusade", [1189, 1192], "Third_Crusade"),
         war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
+        war("Barons%27_Crusade", [1239, 1241], "Barons%27_Crusade"),
+        war("Seventh Crusade", [1248, 1254], "Seventh_Crusade"),
+        war("Eight Crusade", [1270, 1270], "Eight_Crusade"),
+        war("Ninth Crusade", [1271, 1272], "Ninth_Crusade"),
 
         person("Hugues de Payens", [1070, 1136], "Hugues_de_Payens"),
         person("Bernard of Clairvaux", [1090, 1153], "Bernard_of_Clairvaux"),

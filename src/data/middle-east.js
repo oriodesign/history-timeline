@@ -197,10 +197,18 @@ state("Nizari Ismaili state", [1090, 1256], "Nizari_Ismaili_state", [
 ]),
 state("Seljuk_Empire", [1037, 1194], "Seljuk_Empire", [
     war("First Crusade", [1095, 1099], "First_Crusade"),
+    war("Crusade_of_1101", [1101, 1101], "Crusade_of_1101"),
+    war("Venetian_Crusade", [1122, 1124], "Venetian_Crusade"),
     war("Second Crusade", [1147, 1149], "Second_Crusade"),
     ruler("Nur ad-Din", [1146, 1174], "Nur_ad-Din_(died_1174)"),
 ]),
 state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
+state("Sultanate_of_Rum", [1077, 1308], "Sultanate_of_Rum", [
+    war("Crusade_of_1101", [1101, 1101], "Crusade_of_1101"),
+]),
+state("Danishmend", [1077, 1308], "Danishmend", [
+    war("Crusade_of_1101", [1071, 1178], "Crusade_of_1101"),
+]),
 {
     title: "Rashidun Caliphate",
     wiki: "Rashidun_Caliphate",
@@ -235,6 +243,7 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     date: [909, 1171],
     timeline: [
         war("First Crusade", [1095, 1099], "First_Crusade"),
+        war("Venetian_Crusade", [1122, 1124], "Venetian_Crusade"),
         war("Second Crusade", [1147, 1149], "Second_Crusade"),
     ]
 }, 
@@ -245,7 +254,12 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     timeline: [
         ruler("Saladin", [1174, 1193], "Saladin"),
         war("Third Crusade", [1189, 1192], "Third_Crusade"),
+        war("Crusade_of_1197", [1197, 1198], "Crusade_of_1197"),
         war("Fifth_Crusade", [1217, 1221], "Fifth_Crusade"),
+        war("Sixth_Crusade", [1228, 1229], "Sixth_Crusade"),
+        war("Barons%27_Crusade", [1239, 1241], "Barons%27_Crusade"),
+        war("Seventh Crusade", [1248, 1254], "Seventh_Crusade"),
+
     ]
 },
 {
@@ -261,7 +275,8 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
     date: [1250, 1517],
     timeline: [
         ruler("Aybak", [1254, 1257], "Aybak"),
-        ruler("Baibars", [1260, 1277], "Baibars")
+        ruler("Baibars", [1260, 1277], "Baibars"),
+        war("Ninth Crusade", [1271, 1272], "Ninth_Crusade"),
     ]
 },{
     title: "Kingdom of Jerusalem",
@@ -284,6 +299,7 @@ state("Ghurid Sultanate", [879, 1215], "Ghurid_dynasty"),
         war("Second Crusade", [1147, 1149], "Second_Crusade"),
         war("Third Crusade", [1189, 1192], "Third_Crusade"),
         war("Fifth_Crusade", [1217, 1221], "Fifth_Crusade"),
+        war("Barons%27_Crusade", [1239, 1241], "Barons%27_Crusade"),
         battle("Battle of Hattin", 1187, "Battle_of_Hattin"),
         battle("Battle of la Forbie", 1244, "Battle_of_La_Forbie")
         

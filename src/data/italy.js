@@ -115,6 +115,7 @@ export const italy = [
     ]),
     state("Papal States", [754, 1870], "Papal_States", [
         war("First Crusade", [1095, 1099], "First_Crusade"),
+        war("Crusade_of_1101", [1101, 1101], "Crusade_of_1101"),
         war("Second Crusade", [1147, 1149], "Second_Crusade"),
         war("Third Crusade", [1189, 1192], "Third_Crusade"),
         war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
@@ -337,6 +338,7 @@ export const italy = [
         ruler("Francis", [2013, 2020], "Pope_Francis")
     ]),
     state("Republic of Venice", [697, 1797], "Republic_of_Venice", [
+        war("Venetian_Crusade", [1122, 1124], "Venetian_Crusade"),
         war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
     ]),
     state("March of Tuscany", [846, 1197], "March_of_Tuscany"),

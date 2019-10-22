@@ -2,6 +2,8 @@ import { india  } from './india';
 import { england } from './england';
 import { france } from './france';
 import { sweden } from './sweden';
+import { norway } from './norway';
+import { denmark } from './denmark';
 import { greece } from './greece';
 import { rome } from './rome';
 import { russia } from './russia';
@@ -27,6 +29,7 @@ range.forEach((r => {
 }));
 
 export const timelines = [
+    ...norway,
     ...greece,
     ...egypt,
     ...russia,
@@ -42,7 +45,8 @@ export const timelines = [
     ...middleEast,
     ...england,
     ...sweden,
-    ...mongolia
+    ...mongolia,
+    ...denmark
 
 ].sort((a, b) => {
     return a.date[0] < b.date[0] ? -1 : 1

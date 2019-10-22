@@ -76,10 +76,13 @@ export const holyRomanEmpire = [
         date: [800, 1806],
         timeline: [
             // War
+            war("Crusade_of_1101", [1101, 1101], "Crusade_of_1101"),
             war("Second Crusade", [1147, 1149], "Second_Crusade"),
             war("Third Crusade", [1189, 1192], "Third_Crusade"),
+            war("Crusade_of_1197", [1197, 1198], "Crusade_of_1197"),
             war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
             war("Fifth_Crusade", [1217, 1221], "Fifth_Crusade"),
+            war("Sixth_Crusade", [1228, 1229], "Sixth_Crusade"),
 
             // Ruler
             ruler("Charles I", [800, 814], "Charlemagne"),
