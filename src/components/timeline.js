@@ -55,14 +55,10 @@ export function TimeLine({ timeline, scrollX, scale }) {
         backgroundColor: timeline.color
     };
 
-    const wikiStyle = {
-        left: selectedItem ? (selectedItem.date[0] + START) * scale + 'px' : 0,
-    }
-
     return <div title={timeline.title} style={style} className="timeline">
         {timeline.filteredTimeline.map((item, index) => <Item scale={scale} onClick={onClick} color={timeline.color} index={index} key={index} item={item} />)}
         <div ref={ref} style={styleName} className="timeline-name">{timeline.title}</div>
         <div onClick={e => onClick(timeline)} style={styleBar} className="timeline-bar" />
-        {wiki && <Wiki item={selectedItem} close={close} style={wikiStyle} wiki={wiki} />}
+        {wiki && <Wiki item={selectedItem} close={close} wiki={wiki} />}
     </div>
 }

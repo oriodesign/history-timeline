@@ -8,19 +8,22 @@ import { years } from './years';
 import { TimeLine } from './components/timeline';
 import { Century } from './components/century';
 import { Editor } from './components/editor';
-import { Header } from './components/header';
+import { Menu } from './components/menu';
 import { Sidebar } from './components/sidebar';
 import { timelines } from './data/all';
 import { debounce, getCenturies } from './util';
+import optionIcon from './icons/gear-option.svg';
+import deleteIcon from './icons/delete.svg';
 
 function App() {
 
+  const [showMenu, setShowMenu] = useState(false);
   const [scale, setScale] = useState(localStorage.getItem('scale') || 3);
   const [type, setType] = useState(localStorage.getItem('type') || "all");
-  const [region, setRegion] = useState(localStorage.getItem('region') || "all");
+  const [region, setRegion] = useState(localStorage.getItem('region') || "europe");
   const [showEditor, setShowEditor] = useState(false);
   const [threshold, setThreshold] = useState(localStorage.getItem('threshold') || 1);
-  const [scrollX, setScrollX] = useState(localStorage.getItem('scrollX') || 0);
+  const [scrollX, setScrollX] = useState(localStorage.getItem('scrollX') || 15000);
   const [scrollY, setScrollY] = useState(localStorage.getItem('scrollY') || 0);
   const [mouseX, setMouseX] = useState(0);
   const [selectedYear, setSelectedYear] = useState(0);
@@ -39,7 +42,7 @@ function App() {
     requestAnimationFrame(() => {
       setMouseX(e.clientX);
     })
-    
+
   });
 
   useEffect(() => {
@@ -83,10 +86,16 @@ function App() {
   }
 
   function showEvent(e) {
-    if (e.key === "e") {
-      setSelectedYear(mouseXOffset);
-    } else if (e.key === "q") {
-      setSelectedYear(null);
+    switch (e.key) {
+      case "e":
+        setSelectedYear(mouseXOffset);
+        break;
+      case "q":
+        setSelectedYear(null);
+        break;
+      case "x":
+        setShowEditor(true);
+        break;
     }
   }
 
@@ -102,38 +111,41 @@ function App() {
     t.filteredTimeline = hydrateLevel(t.timeline, type, threshold, scale);
   });
 
-  
+
 
   return (
     <div className="App">
-      
-      <Header 
+
+      {!showMenu && <img onClick={() => setShowMenu(true)} id="option-button" src={optionIcon} />}
+      {showMenu && <img onClick={() => setShowMenu(false)} id="close-option-button" src={deleteIcon} />}
+
+      <Menu
+        show={showMenu}
         scale={scale}
         onChangeScale={onChangeScale}
-        region={region} 
-        onChangeRegion={onChangeRegion} 
-        type={type} 
-        threshold={threshold} 
-        onChangeThreshold={onChangeThreshold} 
+        region={region}
+        onChangeRegion={onChangeRegion}
+        type={type}
+        threshold={threshold}
+        onChangeThreshold={onChangeThreshold}
         onChangeType={onChangeType} />
 
       <div className="timelines-wrapper">
         <div style={centuryWrapperStyle} className="century-wrapper">
-          { getCenturies().map(y => <Century scrollY={scrollY} scale={scale} key={y} year={y} />)}
+          {getCenturies().map(y => <Century scrollY={scrollY} scale={scale} key={y} year={y} />)}
         </div>
         {timelines
           .filter(t => (t.regions && t.regions.includes(region)) || region === "all")
           .map(t => <TimeLine scale={scale} scrollX={scrollX} key={t.title} timeline={t} />)}
 
-        {selectedYear && <div style={{left: (selectedYear + START) * scale + "px" }} className="selected-year" /> }
+        {selectedYear && <div style={{ left: (selectedYear + START) * scale + "px" }} className="selected-year" />}
       </div>
-      <button className="show-editor" onClick={() => setShowEditor(true)}>Show Editor</button>
 
       <div className="scroll-year">{scrollOffset}</div>
 
       <div className="mouse-year">{mouseXOffset}</div>
-     
-      {selectedYear && <Sidebar years={years} setSelectedYear={setSelectedYear} selectedYear={selectedYear} /> }
+
+      {selectedYear && <Sidebar years={years} setSelectedYear={setSelectedYear} selectedYear={selectedYear} />}
     </div>
   );
 }
