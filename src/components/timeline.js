@@ -1,29 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Item } from './item';
-import { Wiki } from './wiki';
 import { START } from "../constants";
 
-export function TimeLine({ timeline, scrollX, scale }) {
+export function TimeLine({ timeline, scrollX, scale, setWiki, setSelectedWikiItem, selectedWikiItem }) {
 
-    const [wiki, setWiki] = useState(null);
     const ref = useRef(null);
     const [labelWidth, setLabelWidth] = useState(null);
-    const [selectedItem, setSelectedItem] = useState(null);
 
     useEffect(() => {
         setLabelWidth(ref.current.getBoundingClientRect().width);
-    }, [ref.current]);
+    }, []);
 
     function close() {
         setWiki(null);
-        setSelectedItem(null);
+        setSelectedWikiItem(null);
     }
     function onClick(item) {
-        if (item === selectedItem || !item.wiki) {
+        if (item === selectedWikiItem || !item.wiki) {
             return close();
         }
         setWiki(null);
-        setSelectedItem(item);
+        setSelectedWikiItem(item);
         fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + item.wiki)
             .then(function (response) {
                 return response.json();
@@ -59,6 +56,5 @@ export function TimeLine({ timeline, scrollX, scale }) {
         {timeline.filteredTimeline.map((item, index) => <Item scale={scale} onClick={onClick} color={timeline.color} index={index} key={index} item={item} />)}
         <div ref={ref} style={styleName} className="timeline-name">{timeline.title}</div>
         <div onClick={e => onClick(timeline)} style={styleBar} className="timeline-bar" />
-        {wiki && <Wiki item={selectedItem} close={close} wiki={wiki} />}
     </div>
 }

@@ -1,4 +1,4 @@
-import { state, ruler, war, person, group, battle } from './factory';
+import { state, ruler, group, battle } from './factory';
 
 export const mongolia = group([
     state("Mongol Empire", [1206, 1368], "Mongol_Empire", [

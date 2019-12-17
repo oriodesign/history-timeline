@@ -1,4 +1,4 @@
-import { state, ruler, war, person, group, battle } from './factory';
+import { state, ruler, group } from './factory';
 
 export const denmark = group([
     state("Kingdom of Denmark", [936, 2020], "Denmark", [

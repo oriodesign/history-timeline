@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export function Menu({ show, region, scale, onChangeScale, onChangeRegion, type, onChangeType, threshold, onChangeThreshold }) {
 
@@ -9,7 +9,7 @@ export function Menu({ show, region, scale, onChangeScale, onChangeRegion, type,
     return <header style={style} className="main-menu">
 
         <div className="input-field">
-            <label>Type</label>
+            <label>Event Category</label>
             <select value={type} onChange={onChangeType}>
                 <option>all</option>
                 <option>ruler</option>
@@ -24,11 +24,12 @@ export function Menu({ show, region, scale, onChangeScale, onChangeRegion, type,
             <label>Region</label>
             <select value={region} onChange={onChangeRegion}>
                 <option>all</option>
-                <optgroup label="Continents">
+                <optgroup label="Macro-regions">
                     <option>europe</option>
                     <option>northern europe</option>
                     <option>Middle-East</option>
                     <option>asia</option>
+                    <option>south east asia</option>
                 </optgroup>
                 <optgroup label="Regions">
                     <option>italy</option>
@@ -44,19 +45,33 @@ export function Menu({ show, region, scale, onChangeScale, onChangeRegion, type,
                     <option>egypt</option>
                     <option>russia</option>
                     <option>mongolia</option>
-                    <option>south east asia</option>
                 </optgroup>
             </select>
         </div>
 
         <div className="input-field">
-            <label>Min Duration</label>
-            <input type="number" value={threshold} onChange={onChangeThreshold} />
+            <label>Event minimum duration</label>
+            <select value={threshold} onChange={onChangeThreshold}>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+            </select>
         </div>
 
         <div className="input-field">
-            <label>Scale</label>
-            <input type="number" value={scale} onChange={onChangeScale} /></div>
+            <label>Zoom</label>
+            <select value={scale} onChange={onChangeScale}>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
     </header>
 
 }

@@ -151,9 +151,3 @@ export function hydrateLevel(original, type, threshold, scale) {
 
     return timeline;
 }
-
-function overlaps(startA, endA, startB, endB) {
-    return (startA >= startB && startA <= endB) ||
-        (endA >= startB && endA <= endB) ||
-        (startA <= startB && endA >= endB)
-}

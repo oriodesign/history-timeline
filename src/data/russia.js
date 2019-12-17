@@ -1,4 +1,4 @@
-import { house, ruler } from './factory';
+import { ruler } from './factory';
 
 export const russia = [{
     title: "Russia",

@@ -10,20 +10,25 @@ import { Century } from './components/century';
 import { Editor } from './components/editor';
 import { Menu } from './components/menu';
 import { Sidebar } from './components/sidebar';
+import { Wiki } from './components/wiki';
 import { timelines } from './data/all';
 import { debounce, getCenturies } from './util';
 import optionIcon from './icons/gear-option.svg';
 import deleteIcon from './icons/delete.svg';
+import deleteDarkIcon from './icons/delete-dark.svg';
+import calendarIcon from './icons/calendar.svg';
 
 function App() {
 
+  const [wiki, setWiki] = useState(null);
+  const [selectedWikiItem, setSelectedWikiItem] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
-  const [scale, setScale] = useState(localStorage.getItem('scale') || 3);
+  const [scale, setScale] = useState(localStorage.getItem('scale') || 2);
   const [type, setType] = useState(localStorage.getItem('type') || "all");
   const [region, setRegion] = useState(localStorage.getItem('region') || "europe");
   const [showEditor, setShowEditor] = useState(false);
   const [threshold, setThreshold] = useState(localStorage.getItem('threshold') || 1);
-  const [scrollX, setScrollX] = useState(localStorage.getItem('scrollX') || 15000);
+  const [scrollX, setScrollX] = useState(localStorage.getItem('scrollX') || 10000);
   const [scrollY, setScrollY] = useState(localStorage.getItem('scrollY') || 0);
   const [mouseX, setMouseX] = useState(0);
   const [selectedYear, setSelectedYear] = useState(0);
@@ -36,7 +41,7 @@ function App() {
     setScrollY(window.scrollY);
     localStorage.setItem('scrollX', window.scrollX);
     localStorage.setItem('scrollY', window.scrollY);
-  }, 10);
+  }, 50);
 
   const mouseMoveListener = ((e) => {
     requestAnimationFrame(() => {
@@ -56,6 +61,7 @@ function App() {
 
   useEffect(() => {
     window.scroll(scrollX, scrollY);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -96,6 +102,8 @@ function App() {
       case "x":
         setShowEditor(true);
         break;
+      default:
+        break;
     }
   }
 
@@ -116,8 +124,11 @@ function App() {
   return (
     <div className="App">
 
-      {!showMenu && <img onClick={() => setShowMenu(true)} id="option-button" src={optionIcon} />}
-      {showMenu && <img onClick={() => setShowMenu(false)} id="close-option-button" src={deleteIcon} />}
+      {!showMenu && <img onClick={() => setShowMenu(true)} id="option-button" src={optionIcon} alt="open menu" />}
+      {showMenu && <img onClick={() => setShowMenu(false)} id="close-option-button" src={deleteIcon} alt="close menu" />}
+      {!selectedYear && <img onClick={() => setSelectedYear(mouseXOffset)} id="open-list-button" src={calendarIcon} alt="open list" />}
+      {selectedYear && <img onClick={() => setSelectedYear(undefined)} id="close-list-button" src={deleteDarkIcon} alt="clse list" />}
+
 
       <Menu
         show={showMenu}
@@ -136,7 +147,14 @@ function App() {
         </div>
         {timelines
           .filter(t => (t.regions && t.regions.includes(region)) || region === "all")
-          .map(t => <TimeLine scale={scale} scrollX={scrollX} key={t.title} timeline={t} />)}
+          .map(t => <TimeLine 
+            selectedWikiItem={selectedWikiItem} 
+            setSelectedWikiItem={setSelectedWikiItem} 
+            setWiki={setWiki} 
+            scale={scale} 
+            scrollX={scrollX} 
+            key={t.title} 
+            timeline={t} />)}
 
         {selectedYear && <div style={{ left: (selectedYear + START) * scale + "px" }} className="selected-year" />}
       </div>
@@ -146,6 +164,7 @@ function App() {
       <div className="mouse-year">{mouseXOffset}</div>
 
       {selectedYear && <Sidebar years={years} setSelectedYear={setSelectedYear} selectedYear={selectedYear} />}
+      {wiki && <Wiki selectedWikiItem={selectedWikiItem} setSelectedWikiItem={setSelectedWikiItem} setWiki={setWiki} wiki={wiki} />}
     </div>
   );
 }

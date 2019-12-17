@@ -1,4 +1,4 @@
-import { monument, person, writer, ruler, state } from './factory';
+import { state } from './factory';
 
 export const southEastAsia = [
     state("Srivijaya", [650, 1377], "Srivijaya"),

@@ -1,4 +1,4 @@
-import { ruler, state, war, person, battle, writer } from './factory';
+import { ruler, state, war, battle, writer } from './factory';
 
 export const middleEast = [{
     title: "Uruk period",

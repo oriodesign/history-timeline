@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-const monthsAndAbbr = [
-  "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december",
-  "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec", "fl.", "fl. c. ", "after", "before"
-];
+// const monthsAndAbbr = [
+//   "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december",
+//   "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec", "fl.", "fl. c. ", "after", "before"
+// ];
 
-const monthRegexp = new RegExp("[0-9]?[0-9]? ?(" + monthsAndAbbr.join("|") + ")", "ig");
+// const monthRegexp = new RegExp("[0-9]?[0-9]? ?(" + monthsAndAbbr.join("|") + ")", "ig");
 
 export function Editor() {
 
@@ -84,7 +84,7 @@ export function Editor() {
           if (t.children.length >= 3) {
             
             if (t.children[nameIndex].nodeName === "TH") {
-              return;
+              return "";
             }
 
             let name = findName(t, nameIndex);
@@ -121,7 +121,8 @@ export function Editor() {
             
             return `ruler("${name}", [${from}, ${till}], "${wiki}")`;
           }
-          
+
+          return "";
         }).filter(r => !!r).join(",\n");
 
         setResult(parsed);

@@ -1,4 +1,4 @@
-import { ruler, state, war, person } from './factory';
+import { ruler, state, war } from './factory';
 
 export const holyRomanEmpire = [
     state("East Francia", [843, 962], "East_Francia", [
