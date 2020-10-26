@@ -1,4 +1,4 @@
-import { ruler, person, war, battle } from './factory';
+import { ruler, person, war, battle, composer } from './factory';
 
 export const france = [{
     title: "France",
@@ -109,7 +109,13 @@ export const france = [{
         ruler("Louis XIX Antoine", [1830, 1830], "Louis_Antoine,_Duke_of_Angoul%C3%AAme"),
         ruler("Henry V(Henri)", [1830, 1830], "Henri,_Count_of_Chambord"),
         ruler("Louis-Philippe I the Citizen King", [1830, 1848], "Louis_Philippe_I"),
-        ruler("Napoleon III(Napoléon)", [1852, 1870], "Napoleon_III_of_France")
+        ruler("Napoleon III(Napoléon)", [1852, 1870], "Napoleon_III_of_France"),
+
+        composer("Chopin", [1810, 1849], "Frédéric_Chopin"),
+        composer("Bizet", [1838, 1875], "Georges_Bizet"),
+        composer("Debussy", [1862, 1918], "Claude_Debussy"),
+        composer("Satie", [1866, 1925], "Erik_Satie"),
+        composer("Ravel", [1875, 1937], "Maurice_Ravel"),
     ]
 }].map(t => ({
     ...t,

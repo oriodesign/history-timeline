@@ -1,4 +1,4 @@
-import { india  } from './india';
+import { india } from './india';
 import { england } from './england';
 import { france } from './france';
 import { sweden } from './sweden';
@@ -16,6 +16,7 @@ import { egypt } from './egypt';
 import { middleEast } from './middle-east';
 import { southEastAsia } from './southEastAsia';
 import { mongolia } from './mongolia';
+import { poland } from './poland';
 
 const range = ["44", "88", "BB"];
 
@@ -33,6 +34,7 @@ export const timelines = [
     ...greece,
     ...egypt,
     ...russia,
+    ...poland,
     ...rome,
     ...holyRomanEmpire,
     ...austrianEmpire,

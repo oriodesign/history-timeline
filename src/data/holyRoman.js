@@ -1,4 +1,4 @@
-import { ruler, state, war } from './factory';
+import { ruler, state, war, composer } from './factory';
 
 export const holyRomanEmpire = [
     state("East Francia", [843, 962], "East_Francia", [
@@ -125,7 +125,19 @@ export const holyRomanEmpire = [
             ruler("Francis I", [1745, 1765], "Francis_I,_Holy_Roman_Emperor"),
             ruler("Joseph II", [1765, 1790], "Joseph_II,_Holy_Roman_Emperor"),
             ruler("Leopold II", [1790, 1792], "Leopold_II,_Holy_Roman_Emperor"),
-            ruler("Francis II", [1792, 1806], "Francis_II,_Holy_Roman_Emperor")
+            ruler("Francis II", [1792, 1806], "Francis_II,_Holy_Roman_Emperor"),
+
+
+            composer("Handel", [1685, 1759], "George_Frideric_Handel"),
+            composer("Bach", [1685, 1750], "Johann_Sebastian_Bach"),
+            composer("Haydn", [1732, 1809], "Joseph_Haydn"),
+            composer("Mozart", [1756, 1791], "Wolfgang_Amadeus_Mozart"),
+            composer("Schubert", [1797, 1828], "Franz_Schubert"),
+            composer("Beethoven", [1770, 1827], "Ludwig_van_Beethoven"),
+            composer("Franz Liszt", [1881, 1886], "Franz_Liszt"),
+            composer("Béla Bartók", [1881, 1945], "Béla_Bartók"),
+            composer("Wagner", [1813, 1883], "Richard_Wagner"),
+            composer("Brahms", [1833, 1897], "Johannes_Brahms"),
         ]
     }].map(t => ({
         ...t,

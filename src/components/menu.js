@@ -17,6 +17,7 @@ export function Menu({ show, region, scale, onChangeScale, onChangeRegion, type,
                 <option>monument</option>
                 <option>house</option>
                 <option>war</option>
+                <option>book</option>
             </select>
         </div>
 
@@ -52,6 +53,7 @@ export function Menu({ show, region, scale, onChangeScale, onChangeRegion, type,
         <div className="input-field">
             <label>Event minimum duration</label>
             <select value={threshold} onChange={onChangeThreshold}>
+                <option>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>

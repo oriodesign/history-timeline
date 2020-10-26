@@ -17,8 +17,8 @@ export function year(year, events) {
 
 export function group(states, regions) {
     return states.map(s => ({
-            ...s,
-            regions: [...s.regions, ...regions]
+        ...s,
+        regions: [...s.regions, ...regions]
     }));
 }
 
@@ -95,6 +95,17 @@ export function writer(name, date, wiki, star) {
     };
 }
 
+export function composer(name, date, wiki, star) {
+    return {
+        name,
+        date,
+        wiki,
+        level: 1,
+        type: "composer",
+        star: star === '★'
+    };
+}
+
 export function house(name, date, wiki) {
     return {
         name,
@@ -109,12 +120,12 @@ export function hydrateLevel(original, type, threshold, scale) {
     original.sort((a, b) => a.date[0] < b.date[0] ? -1 : 1);
 
     const timeline = original
-    .filter(t => {
-        return t.type === type || type === "all"
-    })
-    .filter(t => {
-        return t.date[1] - t.date[0] >= threshold;
-    });
+        .filter(t => {
+            return t.type === type || type === "all"
+        })
+        .filter(t => {
+            return t.date[1] - t.date[0] >= threshold;
+        });
 
     let levels = [];
     let base = 1;
@@ -126,7 +137,7 @@ export function hydrateLevel(original, type, threshold, scale) {
         const nameSpace = charSize * current.name.length;
         const blockStarts = current.date[0] * +scale;
         const blockEnds = current.date[1] * +scale;
-        
+
         const space = Math.max(blockStarts + nameSpace, blockEnds) + padding;
         let lookingForSpace = true;
         let levelIndex = 0;
@@ -134,8 +145,8 @@ export function hydrateLevel(original, type, threshold, scale) {
             timeline[i].level = 1;
             base = 2;
             continue;
-        } 
-        while(lookingForSpace) {
+        }
+        while (lookingForSpace) {
             if (typeof levels[levelIndex] === "undefined" || levels[levelIndex] < blockStarts) {
                 lookingForSpace = false;
                 levels[levelIndex] = space;
@@ -145,7 +156,7 @@ export function hydrateLevel(original, type, threshold, scale) {
                 levels[0] = space;
                 timeline[i].level = base;
             }
-            levelIndex ++;
+            levelIndex++;
         }
     }
 

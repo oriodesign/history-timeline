@@ -1,4 +1,4 @@
-import { ruler } from './factory';
+import { ruler, composer } from './factory';
 
 export const russia = [{
     title: "Russia",
@@ -121,7 +121,16 @@ export const russia = [{
         ruler("Alexander III", [1881, 1894], "Alexander_III_of_Russia"),
         ruler("Nicholas II", [1894, 1917], "Nicholas_II_of_Russia"),
         ruler("Michael II", [1917, 1917], "Grand_Duke_Michael_Alexandrovich_of_Russia"),
-        ruler("Nikolai Nikolaevich", [1922, 1922], "Grand_Duke_Nikolai_Nikolaevich_of_Russia_(1856%E2%80%931929)")]
+        ruler("Nikolai Nikolaevich", [1922, 1922], "Grand_Duke_Nikolai_Nikolaevich_of_Russia_(1856%E2%80%931929)"),
+
+
+        composer("Tchaikovsky", [1840, 1893], "Pyotr_Ilyich_Tchaikovsky"),
+        composer("Korsakov", [1844, 1908], "Nikolai_Rimsky-Korsakov"),
+        composer("Rachmaninoff", [1873, 1943], "Sergei_Rachmaninoff"),
+        composer("Stravinsky", [1882, 1971], "Igor_Stravinsky"),
+        composer("Prokofiev", [1891, 1953], "Sergei_Prokofiev"),
+        composer("Shostakovich", [1906, 1975], "Dmitri_Shostakovich"),
+    ]
 }].map(t => ({
     ...t,
     regions: ["russia"]

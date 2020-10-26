@@ -1,6 +1,23 @@
-import { house, ruler, person, battle, war, book } from './factory';
+import { state, house, ruler, person, battle, war, book, composer } from './factory';
 
 export const england = [
+    state("Powys", [450, 1160], "Kingdom_of_Powys", [
+        person("Nennius", [800, 850], "Nennius", '★'),
+        book("Historia Brittonum", 828, "Historia_Brittonum"),
+    ]),
+    state("Gwynedd", [450, 1216], "Kingdom_of_Gwynedd", [
+
+    ]),
+    state("Dyfed", [410, 920], "Kingdom_of_Dyfed", [
+
+    ]),
+    state("Gwent", [450, 1075], "Kingdom_of_Gwent", [
+
+    ]),
+    state("Glywysing", [450, 1055], "Kingdom_of_Gwent", [
+        person("Gildas", [500, 570], "Gildas", '★'),
+        book("De Excidio et conquestu britanniae", 540, "De_Excidio_et_Conquestu_Britanniae"),
+    ]),
     {
         title: "Wessex",
         wiki: "Indus_Valley_Civilisation",
@@ -57,7 +74,7 @@ export const england = [
             ruler("Sigeheard", [694, 709], "Sigeheard_of_Essex"),
             ruler("Swæfred", [695, 709], "Sw%C3%A6fred_of_Essex"),
             ruler("Offa", [709, 709], "Offa_of_Essex"),
-            ruler("Saelred", [709,746], "Saelred_of_Essex"),
+            ruler("Saelred", [709, 746], "Saelred_of_Essex"),
             ruler("Swæfbert", [715, 738], "Sw%C3%A6fbert_of_Essex"),
             ruler("Swithred", [746, 758], "Swithred_of_Essex"),
             ruler("Sigeric", [758, 798], "Sigeric_of_Essex"),
@@ -246,7 +263,10 @@ export const england = [
             ruler("George V", [1910, 1936], "George_V"),
             ruler("Edward VIII", [1936, 1936], "Edward_VIII"),
             ruler("George VI", [1936, 1952], "George_VI"),
-            ruler("Elizabeth II", [1952, 2020], "Elizabeth_II")
+            ruler("Elizabeth II", [1952, 2020], "Elizabeth_II"),
+
+            // Composer
+            composer("Elgar", [1857, 1934], "Edward_Elgar"),
         ]
     }].map(t => ({
         ...t,

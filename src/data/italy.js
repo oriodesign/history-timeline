@@ -1,4 +1,4 @@
-import { state, ruler, war, person } from './factory';
+import { state, ruler, war, person, composer } from './factory';
 
 export const italy = [
     state("Kingdom of Italy", [476, 493], "Odoacer#King_of_Italy", [
@@ -340,6 +340,8 @@ export const italy = [
     state("Republic of Venice", [697, 1797], "Republic_of_Venice", [
         war("Venetian_Crusade", [1122, 1124], "Venetian_Crusade"),
         war("Fourth Crusade", [1202, 1204], "Fourth_Crusade"),
+        composer("Monteverdi", [1567, 1643], "Claudio_Monteverdi"),
+        composer("Vivaldi", [1678, 1741], "Antonio_Vivaldi"),
     ]),
     state("March of Tuscany", [846, 1197], "March_of_Tuscany"),
     state("Republic of Florence", [1115, 1532], "Republic_of_Florence", [
@@ -389,6 +391,8 @@ export const italy = [
             ruler("Umberto I", [1878, 1900], "Umberto_I_of_Italy"),
             ruler("Victor Emmanuel III", [1900, 1946], "Victor_Emmanuel_III_of_Italy"),
             ruler("Umberto II", [1946, 1946], "Umberto_II_of_Italy"),
+            composer("Verdi", [1813, 1901], "Giuseppe_Verdi"),
+            composer("Puccini", [1858, 1924], "Giacomo_Puccini"),
         ]
     }].map(t => ({
         ...t,
