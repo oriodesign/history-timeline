@@ -1,5 +1,5 @@
 
-import { state, ruler, war, group } from './factory';
+import { state, ruler, group } from './factory';
 
 export const poland = group([
     state("Kingdom of Poland", [960, 1815], "Kingdom_of_Norway_(872–1397)", [
